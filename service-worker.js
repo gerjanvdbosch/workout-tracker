@@ -14,10 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/workout-app/precache-manifest.c06c88ac1d8187835dd002cd55ef78bf.js"
+  "/workout-log/precache-manifest.063b6eaf5ad83f0748356708ba094909.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "workout-app"});
+workbox.core.setCacheNameDetails({prefix: "workout-log"});
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
