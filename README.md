@@ -1,4 +1,4 @@
-# workout-app
+# Workout Application
 
 ## Project setup
 ```
