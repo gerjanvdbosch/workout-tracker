@@ -1,4 +1,4 @@
-module.exsports = {
+module.exports = {
   "publicPath": "/workout-app/",
   "transpileDependencies": [
     "vuetify"
