@@ -1,6 +1,8 @@
 module.exports = {
-  "publicPath": "/workout-app/",
-  "transpileDependencies": [
-    "vuetify"
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/workout-app/'
+    : '/',
+  transpileDependencies: [
+    'vuetify'
   ]
 }
