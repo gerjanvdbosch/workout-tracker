@@ -5,21 +5,11 @@
     elevation="1"
   >
     <v-toolbar-title>Workout Log</v-toolbar-title>
+    <v-spacer/>
 
-    <template v-slot:extension>
-      <v-tabs
-        background-color="grey lighten-3"
-        light
-      >
-        <v-tab
-          :to="item.to"
-          v-for="(item) in tabs"
-        >
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-tab>
-      </v-tabs>
-
-    </template>
+    <v-btn :to="{ name: 'workout_add' }" icon>
+      <v-icon>add_circle</v-icon>
+    </v-btn>
   </v-toolbar>
 </template>
 
@@ -27,27 +17,6 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'Navigation',
-
-  data: () => ({
-    tabs: [
-      {
-        to: '/',
-        icon: 'home'
-      },
-      {
-        to: '/history',
-        icon: 'access_time'
-      },
-      {
-        to: '/progress',
-        icon: 'show_chart'
-      },
-      {
-        to: '/calendar',
-        icon: 'today'
-      }
-    ]
-  })
+  name: 'Navigation'
 });
 </script>

@@ -1,29 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '../views/Home.vue'
-import History from '../views/History.vue'
-import Progress from '../views/Progress.vue'
-import Calendar from '../views/Calendar.vue'
+import History from '@/views/History.vue'
+import AddWorkout from '@/views/AddWorkout.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    component: Home
-  },
-  {
-    path: '/history',
     component: History
   },
   {
-    path: '/progress',
-    component: Progress
-  },
-  {
-    path: '/calendar',
-    component: Calendar
+    name: 'workout_add',
+    path: '/workout/add',
+    component: AddWorkout
   }
 ]
 
