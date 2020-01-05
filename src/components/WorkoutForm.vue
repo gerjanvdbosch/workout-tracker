@@ -1,7 +1,8 @@
 <template>
   <v-form>
     <v-text-field
-      label="Body Weight"
+      v-model="workout.bodyWeight"
+      label="Body Weight (kg)"
       type="number"
       step="0.1"
       required
@@ -23,13 +24,25 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Workout from '@/models/Workout';
+import v4 from 'uuid';
 
 export default Vue.extend({
   name: 'WorkoutForm',
 
+  props: {
+    workout: {
+      default: () => <Workout>{
+        id: v4(),
+        date: new Date()
+      }
+    }
+  },
+
   methods: {
     save() {
-      this.$emit('save');
+      this.$store.commit('save', this.$props.workout);
+      this.$router.push('/');
     }
   },
 });

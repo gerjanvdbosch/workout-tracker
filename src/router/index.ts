@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import History from '@/views/History.vue'
+import Home from '@/views/Home.vue'
 import AddWorkout from '@/views/AddWorkout.vue'
 
 Vue.use(VueRouter)
@@ -9,7 +9,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    component: History
+    component: Home
   },
   {
     name: 'workout_add',
