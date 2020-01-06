@@ -14,7 +14,6 @@ import Navigation from '@/components/Navigation.vue';
 
 export default Vue.extend({
   name: 'App',
-
   components: {
     Navigation,
   },

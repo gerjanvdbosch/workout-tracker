@@ -20,7 +20,6 @@
 
   export default Vue.extend({
     name: 'AddWorkout',
-
     components: {
       WorkoutForm
     }

@@ -10,7 +10,7 @@
         {{ workout.date|moment('calendar') }}
         <v-spacer/>
 
-        <v-btn icon>
+        <v-btn icon @click="remove(workout)">
           <v-icon color="error">remove_circle</v-icon>
         </v-btn>
       </v-card-title>
@@ -29,12 +29,17 @@
 <script lang="ts">
   import Vue from 'vue';
   import { mapState } from 'vuex';
+  import Workout from '@/models/Workout';
 
   export default Vue.extend({
     name: 'Home',
-
     computed: {
       ...mapState(['workouts'])
+    },
+    methods: {
+      remove(workout: Workout) {
+        this.$store.commit('remove', workout);
+      }
     }
   });
 </script>

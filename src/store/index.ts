@@ -25,6 +25,14 @@ export default new Vuex.Store({
       } else {
         state.workouts.push(workout);
       }
+    },
+    remove: function (state, workout: Workout) {
+      const found = state.workouts.find(s => s.id == workout.id);
+
+      if (found) {
+        const index = state.workouts.indexOf(found);
+        state.workouts.splice(index, 1);
+      }
     }
   },
   actions: {

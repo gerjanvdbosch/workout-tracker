@@ -29,7 +29,6 @@ import v4 from 'uuid';
 
 export default Vue.extend({
   name: 'WorkoutForm',
-
   props: {
     workout: {
       default: () => <Workout>{
@@ -38,7 +37,6 @@ export default Vue.extend({
       }
     }
   },
-
   methods: {
     save() {
       this.$store.commit('save', this.$props.workout);
