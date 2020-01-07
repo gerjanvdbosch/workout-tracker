@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5aa675da60217bb2d92f",
+    "revision": "84901a1873ebc18fe415",
     "url": "/workout-log/css/chunk-vendors.a5b95eb1.css"
   },
   {
@@ -20,16 +20,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/workout-log/fonts/MaterialIcons-Regular.da4ea5cd.ttf"
   },
   {
-    "revision": "b3a2039f648889ee957a41656390a36d",
+    "revision": "bc9425dbd9f6632189e5254e970319fa",
     "url": "/workout-log/index.html"
   },
   {
-    "revision": "7fc272292cfd7fd59b7e",
-    "url": "/workout-log/js/app.2b398773.js"
+    "revision": "a9a1aef3a6182a892e21",
+    "url": "/workout-log/js/app.398177c2.js"
   },
   {
-    "revision": "5aa675da60217bb2d92f",
-    "url": "/workout-log/js/chunk-vendors.4132dca3.js"
+    "revision": "84901a1873ebc18fe415",
+    "url": "/workout-log/js/chunk-vendors.3c21b1c1.js"
   },
   {
     "revision": "be518e752805dcda8716224ae56f39d9",
