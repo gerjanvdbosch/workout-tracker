@@ -17,22 +17,25 @@ export default new Vuex.Store({
       }
     },
     save: function (state, workout: Workout) {
-      const found = state.workouts.find(s => s.id == workout.id);
+      const index = state.workouts.findIndex(s => s.id == workout.id);
 
-      if (found) {
-        const index = state.workouts.indexOf(found);
+      if (index !== -1) {
         state.workouts[index] = workout;
       } else {
         state.workouts.push(workout);
       }
     },
     remove: function (state, workout: Workout) {
-      const found = state.workouts.find(s => s.id == workout.id);
+      const index = state.workouts.findIndex(s => s.id == workout.id);
 
-      if (found) {
-        const index = state.workouts.indexOf(found);
+      if (index !== -1) {
         state.workouts.splice(index, 1);
       }
+    }
+  },
+  getters: {
+    getWorkout: (state) => (id: string) => {
+      return state.workouts.find(s => s.id === id)
     }
   },
   actions: {

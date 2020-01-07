@@ -25,14 +25,14 @@
 <script lang="ts">
 import Vue from 'vue';
 import Workout from '@/models/Workout';
-import v4 from 'uuid';
+import uuid from 'uuid';
 
 export default Vue.extend({
   name: 'WorkoutForm',
   props: {
     workout: {
       default: () => <Workout>{
-        id: v4(),
+        id: uuid(),
         date: new Date()
       }
     }
