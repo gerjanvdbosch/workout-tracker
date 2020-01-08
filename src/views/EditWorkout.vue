@@ -25,7 +25,7 @@ export default Vue.extend({
   computed: {
     ...mapGetters(['getWorkout']),
     workout(): Workout {
-      return <Workout>this.getWorkout(this.$route.params.id);
+      return Object.assign({}, <Workout>this.getWorkout(this.$route.params.id));
     }
   },
   components: {
