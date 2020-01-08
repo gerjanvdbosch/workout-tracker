@@ -8,6 +8,12 @@
       required
     />
 
+    <v-autocomplete
+      v-model="workout.exercise"
+      label="Exercise"
+      :items="exercises"
+    />
+
     <v-btn
       color="primary"
       class="mr-3"
@@ -48,6 +54,14 @@ export default Vue.extend({
     save() {
       this.$store.commit('save', this.$props.workout);
       this.$router.push('/');
+    }
+  },
+  data () {
+    return {
+      exercises: [
+        'Bench Press',
+        'Dead Lift',
+      ]
     }
   },
 });
