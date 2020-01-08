@@ -12,11 +12,18 @@
       color="primary"
       class="mr-3"
       @click="save"
+      tile
+      elevation="1"
     >
       Save
     </v-btn>
 
-    <v-btn link to="/">
+    <v-btn
+      link
+      to="/"
+      tile
+      elevation="1"
+    >
       Cancel
     </v-btn>
   </v-form>

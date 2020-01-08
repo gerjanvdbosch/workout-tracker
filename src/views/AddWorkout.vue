@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
 
-    <v-card elevation="1">
+    <v-card elevation="1" tile>
       <v-card-title>
         Add Workout
       </v-card-title>

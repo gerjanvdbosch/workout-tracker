@@ -6,6 +6,7 @@
       :to="{ name: 'workout_edit', params: { 'id': workout.id } }"
       class="mb-3"
       elevation="1"
+      tile
     >
       <v-card-title>
         {{ workout.date|moment('calendar') }}
