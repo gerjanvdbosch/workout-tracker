@@ -90,23 +90,14 @@
   import Vue from 'vue';
 
   export default Vue.extend({
-    name: 'ExerciseForm',
+    name: 'ExercisesForm',
     props: {
       selectable: Boolean
     },
     data: () => ({
       showSearch: false,
       searchText: '',
-      exercises: [
-        {
-          icon: 'C',
-          name: 'Bench Press',
-        },
-        {
-          icon: 'B',
-          name: 'Dead Lift',
-        },
-      ],
+      exercises: [],
       selectedExercises: []
     }),
     methods: {
@@ -122,7 +113,7 @@
     },
     computed: {
       filteredExercises() {
-        return this.exercises.filter((exercise) => {
+        return this.$data.exercises.filter((exercise) => {
           return exercise.name.toLowerCase().match(this.$data.searchText.toLowerCase());
         })
       }

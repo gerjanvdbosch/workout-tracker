@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '@/views/Home.vue'
-import ExerciseForm from '@/components/ExerciseForm.vue';
+import ExercisesForm from '@/components/ExercisesForm.vue';
 
 Vue.use(VueRouter)
 
@@ -12,9 +12,9 @@ const routes = [
     component: Home
   },
   {
-    name: 'exercise',
-    path: '/exercise',
-    component: ExerciseForm
+    name: 'exercises',
+    path: '/exercises',
+    component: ExercisesForm
   }
 ]
 

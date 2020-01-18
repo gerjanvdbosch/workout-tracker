@@ -82,7 +82,7 @@
           icon: 'mdi-text',
           text: 'Exercises',
           to: {
-            name: 'exercise'
+            name: 'exercises'
           }
         },
       ]
