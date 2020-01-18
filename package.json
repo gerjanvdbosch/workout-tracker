@@ -19,6 +19,7 @@
     "vuex": "^3.1.2"
   },
   "devDependencies": {
+    "@mdi/font": "^4.7.95",
     "@types/node": "^12.12.24",
     "@types/uuid": "^3.4.6",
     "@types/vue-moment": "^4.0.0",
@@ -28,7 +29,6 @@
     "@vue/cli-plugin-typescript": "^4.1.0",
     "@vue/cli-plugin-vuex": "^4.1.0",
     "@vue/cli-service": "^4.1.0",
-    "material-design-icons-iconfont": "^5.0.1",
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "typescript": "~3.5.3",

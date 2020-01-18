@@ -16,7 +16,7 @@ export default new Vuex.Store({
         this.replaceState(Object.assign(state, JSON.parse(workouts)));
       }
     },
-    save: function (state, workout: Workout) {
+    saveWorkout: function (state, workout: Workout) {
       const index = state.workouts.findIndex(s => s.id == workout.id);
 
       if (index !== -1) {
@@ -25,8 +25,8 @@ export default new Vuex.Store({
         state.workouts.push(workout);
       }
     },
-    remove: function (state, workout: Workout) {
-      const index = state.workouts.findIndex(s => s.id == workout.id);
+    removeWorkout: function (state, id: string) {
+      const index = state.workouts.findIndex(s => s.id == id);
 
       if (index !== -1) {
         state.workouts.splice(index, 1);
@@ -35,7 +35,7 @@ export default new Vuex.Store({
   },
   getters: {
     getWorkout: (state) => (id: string) => {
-      return state.workouts.find(s => s.id === id)
+      return state.workouts.find(s => s.id == id)
     }
   },
   actions: {

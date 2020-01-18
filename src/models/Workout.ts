@@ -1,6 +1,8 @@
+import Exercise from '@/models/Exercise';
+
 export default interface Workout {
-  id: string;
-  date: Date;
-  bodyWeight: number;
-  exercise: string
+  id: string
+  date: Date
+  exercises: Array<Exercise>
+  notes: string
 }

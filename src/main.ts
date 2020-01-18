@@ -20,4 +20,3 @@ new Vue({
     this.$store.commit('initialize');
   }
 }).$mount('#app')
-
