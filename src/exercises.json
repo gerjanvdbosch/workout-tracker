@@ -1,0 +1,45 @@
+{
+    "groups": [
+        { "AB": { "name": "Abs", "color": "green" } },
+        { "BA": { "name": "Back", "color": "blue" } },
+        { "BI": { "name": "Biceps", "color": "red" } },
+        { "CA": { "name": "Cardio", "color": "brown" } },
+        { "CH": { "name": "Chest", "color": "orange" } },
+        { "CL": { "name": "Calves", "color": "grey" } },
+        { "FO": { "name": "Forearms", "color": "purple" } },
+        { "LE": { "name": "Legs", "color": "indigo" } },
+        { "SH": { "name": "Shoulders", "color": "cyan" } },
+        { "TR": { "name": "Triceps", "color": "teal" } }
+    ],
+    "exercises": [
+        {
+            "AB": [
+                { "name": "Ab Machine" },
+                { "name": "Ab Roller" },
+                { "name": "Ab Vacuum" },
+                { "name": "Bicycle Crunch" },
+                { "name": "Cable Crunch" },
+                { "name": "Cable Windmill" },
+                { "name": "Crunch" },
+                { "name": "Crunch with Swiss Ball" },
+                { "name": "Dragon Fly" },
+                { "name": "Dumbbell Side Bend" },
+                { "name": "Hanging Leg Raise" },
+                { "name": "Hanging Pike" },
+                { "name": "Jackknife Situp" },
+                { "name": "Lying Leg Raise" },
+                { "name": "Machine Ab Crunch" },
+                { "name": "Medicine Ball Twist" },
+                { "name": "Plank" },
+                { "name": "Reverse Crunch" },
+                { "name": "Roman Chair Leg Raise" },
+                { "name": "Russian Twist" },
+                { "name": "Side Crunch" },
+                { "name": "Side Plank" },
+                { "name": "Situp" },
+                { "name": "Spider Crawl" },
+                { "name": "Weighted Crunch" }
+            ]
+        }
+    ]
+}
