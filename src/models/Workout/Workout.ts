@@ -1,4 +1,4 @@
-import Exercise from '@/models/Exercise';
+import Exercise from '@/models/Workout/Exercise';
 
 export default interface Workout {
   id: string

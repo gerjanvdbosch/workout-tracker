@@ -7,9 +7,9 @@ import vuetify from './plugins/vuetify';
 
 Vue.config.productionTip = false
 
-store.subscribe((mutation, state) => {
-  localStorage.setItem('workouts', JSON.stringify(state));
-});
+// store.subscribe((mutation, state) => {
+//   localStorage.setItem('workouts', JSON.stringify(state));
+// });
 
 new Vue({
   router,

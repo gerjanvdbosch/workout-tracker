@@ -1,0 +1,108 @@
+[
+    {
+        "group": {
+            "name": "Abs",
+            "code": "AB",
+            "color": "green"
+        },
+        "items": [
+            { "name": "Ab Machine" },
+            { "name": "Ab Roller" },
+            { "name": "Ab Vacuum" },
+            { "name": "Bicycle Crunch" },
+            { "name": "Cable Crunch" },
+            { "name": "Cable Windmill" },
+            { "name": "Crunch" },
+            { "name": "Crunch with Swiss Ball" },
+            { "name": "Dragon Fly" },
+            { "name": "Dumbbell Side Bend" },
+            { "name": "Hanging Leg Raise" },
+            { "name": "Hanging Pike" },
+            { "name": "Jackknife Situp" },
+            { "name": "Lying Leg Raise" },
+            { "name": "Machine Ab Crunch" },
+            { "name": "Medicine Ball Twist" },
+            { "name": "Plank" },
+            { "name": "Reverse Crunch" },
+            { "name": "Roman Chair Leg Raise" },
+            { "name": "Russian Twist" },
+            { "name": "Side Crunch" },
+            { "name": "Side Plank" },
+            { "name": "Situp" },
+            { "name": "Spider Crawl" },
+            { "name": "Weighted Crunch" }
+        ]
+    },
+    {
+        "group": {
+            "name": "Back",
+            "code": "BA",
+            "color": "blue"
+        },
+        "items": []
+    },
+    {
+        "group": {
+            "name": "Biceps",
+            "code": "BI",
+            "color": "red"
+        },
+        "items": []
+    },
+    {
+        "group": {
+            "name": "Cardio",
+            "code": "CA",
+            "color": "brown"
+        },
+        "items": []
+    },
+    {
+        "group": {
+            "name": "Chest",
+            "code": "CH",
+            "color": "orange"
+        },
+        "items": []
+    },
+    {
+        "group": {
+            "name": "Calves",
+            "code": "CL",
+            "color": "grey"
+        },
+        "items": []
+    },
+    {
+        "group": {
+            "name": "Forearms",
+            "code": "FO",
+            "color": "purple"
+        },
+        "items": []
+    },
+    {
+        "group": {
+            "name": "Legs",
+            "code": "LE",
+            "color": "indigo"
+        },
+        "items": []
+    },
+    {
+        "group": {
+            "name": "Shoulders",
+            "code": "SH",
+            "color": "cyan"
+        },
+        "items": []
+    },
+    {
+        "group": {
+            "name": "Triceps",
+            "code": "TR",
+            "color": "teal"
+        },
+        "items": []
+    }
+]

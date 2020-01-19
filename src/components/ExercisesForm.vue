@@ -39,7 +39,6 @@
 
     <v-container fluid>
       <v-card
-        class="mb-3"
         elevation="1"
         tile
       >
@@ -52,11 +51,11 @@
           >
             <v-list-item-avatar>
               <v-avatar
-                color="primary"
+                :color="exercise.color"
                 class="white--text"
                 size="38"
               >
-                {{ exercise.icon }}
+                {{ exercise.code }}
               </v-avatar>
             </v-list-item-avatar>
 
@@ -88,6 +87,8 @@
 
 <script lang="ts">
   import Vue from 'vue';
+  import {mapState} from 'vuex';
+  import Exercise from '@/models/Exercise';
 
   export default Vue.extend({
     name: 'ExercisesForm',
@@ -97,24 +98,26 @@
     data: () => ({
       showSearch: false,
       searchText: '',
-      exercises: [],
       selectedExercises: []
     }),
     methods: {
-      toggleSearch() {
-        this.$data.showSearch = !this.$data.showSearch
+      toggleSearch(): void {
+        this.showSearch = !this.showSearch
 
-        if (this.$data.showSearch) {
+        if (this.showSearch) {
           this.$nextTick(() => (<HTMLInputElement>this.$refs.searchField).focus())
         } else {
-          this.$data.searchText = '';
+          this.searchText = '';
         }
       }
     },
     computed: {
-      filteredExercises() {
-        return this.$data.exercises.filter((exercise) => {
-          return exercise.name.toLowerCase().match(this.$data.searchText.toLowerCase());
+      ...mapState({
+        exercises: (state: any) => state.exercises.items
+      }),
+      filteredExercises(): Array<Exercise> {
+        return this.exercises.filter((exercise: Exercise) => {
+          return exercise.name.toLowerCase().match(this.searchText.toLowerCase());
         })
       }
     }

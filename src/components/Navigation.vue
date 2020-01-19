@@ -88,8 +88,8 @@
       ]
     }),
     methods: {
-      toggleDrawer() {
-        this.$data.showDrawer = !this.$data.showDrawer
+      toggleDrawer(): void {
+        this.showDrawer = !this.showDrawer
       }
     }
   });
