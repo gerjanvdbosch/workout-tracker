@@ -16,7 +16,7 @@
       <v-toolbar-title v-if="!showSearch">Exercises</v-toolbar-title>
 
       <v-text-field
-        v-if="showSearch"
+        v-else
         v-model="searchText"
         ref="searchField"
         flat
