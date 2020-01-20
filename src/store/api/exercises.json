@@ -58,7 +58,7 @@
             { "name": "Chinup" },
             { "name": "Close-Grip Pullup" },
             { "name": "Dumbbell Deadlift" },
-            { "name": "Dumbbell Pullover" },
+            { "name": "Dumbbell Pullover Back" },
             { "name": "Dumbbell Shrug" },
             { "name": "Eccentric Chinup" },
             { "name": "Eccentric Pullup" },
@@ -161,7 +161,7 @@
             { "name": "Hammer Dumbbell Bench Press" },
             { "name": "Dumbbell Floor Press" },
             { "name": "Dumbbell Fly" },
-            { "name": "Dumbbell Pullover" },
+            { "name": "Dumbbell Pullover Chest" },
             { "name": "Incline Barbell Bench Press" },
             { "name": "Incline Dumbbell Bench Press" },
             { "name": "Incline Hammer Dumbbell Bench Press" },
@@ -181,10 +181,20 @@
     {
         "group": {
             "name": "Calves",
-            "code": "CL",
-            "color": "grey"
+            "code": "CA",
+            "color": "pink"
         },
-        "items": []
+        "items": [
+            { "name": "Barbell Calf Raise" },
+            { "name": "Donkey Calf Raise" },
+            { "name": "Dumbbell Calf Raise" },
+            { "name": "Machine Calf Press" },
+            { "name": "Machine Calf Raise" },
+            { "name": "Seated Machine Calf Raise" },
+            { "name": "Single-Leg Machine Calf Press" },
+            { "name": "Smith Machine Calf Raise" },
+            { "name": "Single-Leg Smith Machine Calf Raise" }
+        ]
     },
     {
         "group": {
@@ -192,7 +202,12 @@
             "code": "FO",
             "color": "purple"
         },
-        "items": []
+        "items": [
+            { "name": "Barbell Wrist Curl" },
+            { "name": "Cable Wrist Curl" },
+            { "name": "Dumbbell Wrist Curl" },
+            { "name": "Weight Plate Squeeze" }
+        ]
     },
     {
         "group": {
@@ -200,7 +215,56 @@
             "code": "LE",
             "color": "indigo"
         },
-        "items": []
+        "items": [
+            { "name": "Barbell Clean" },
+            { "name": "Barbell Front Squat" },
+            { "name": "Barbell Hack Squat" },
+            { "name": "Barbell High Pull" },
+            { "name": "Barbell Lunge" },
+            { "name": "Barbell Power Clean" },
+            { "name": "Barbell Squat" },
+            { "name": "Barbell Step-Ups" },
+            { "name": "Bear Complex" },
+            { "name": "Bench Jump" },
+            { "name": "Bodyweight Bridge" },
+            { "name": "Bodyweight Lunge" },
+            { "name": "Bodyweight Squat" },
+            { "name": "Bodyweight Step-Ups" },
+            { "name": "Bodyweight Split Squat" },
+            { "name": "Cable Leg Curl" },
+            { "name": "Dumbbell Lunge" },
+            { "name": "Dumbbell Romanian Deadlift" },
+            { "name": "Dumbbell Squat" },
+            { "name": "Dumbbell Step-Ups" },
+            { "name": "Goblet Squat" },
+            { "name": "Jefferson Squat" },
+            { "name": "Kettlebell Squat" },
+            { "name": "Lateral Box Jump" },
+            { "name": "Machine Hack Squat" },
+            { "name": "Machine Leg Curl" },
+            { "name": "Machine Leg Extension" },
+            { "name": "Machine Leg Press" },
+            { "name": "Machine Lying Leg Curl" },
+            { "name": "Machine Single-Leg Extension" },
+            { "name": "Machine Single-Leg Lying Curl" },
+            { "name": "Machine Outer Thigh Abduction" },
+            { "name": "Machine Inner Thigh Abduction" },
+            { "name": "Overhead Barbell Squat" },
+            { "name": "Romanian Deadlift" },
+            { "name": "Russian Swing" },
+            { "name": "Single-Arm Kettlebell Swing" },
+            { "name": "Single-Leg Bodyweight Squat" },
+            { "name": "Single-Leg Machine Curl" },
+            { "name": "Single-Leg Press" },
+            { "name": "Smith Machine Front Squat" },
+            { "name": "Smith Machine Hack Squat" },
+            { "name": "Smith Machine Lunge" },
+            { "name": "Smith Machine Romanian Deadlift" },
+            { "name": "Smith Machine Squat" },
+            { "name": "Stiff-Leg Deadlift" },
+            { "name": "Walking Lunge" },
+            { "name": "Zercher Squat" }
+        ]
     },
     {
         "group": {
