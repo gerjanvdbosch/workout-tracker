@@ -44,8 +44,8 @@
       >
         <v-list>
           <v-list-item
-            v-if="filteredExercises.length"
-            v-for="exercise in filteredExercises"
+            v-if="exercises.length"
+            v-for="exercise in exercises"
             :key="exercise.name"
             link
           >
@@ -72,7 +72,12 @@
             </v-list-item-action>
           </v-list-item>
 
-          <v-list-item v-if="!filteredExercises.length">
+          <InfiniteLoading @infinite="infiniteLoading" :distance="400">
+            <div slot="no-more"/>
+            <div slot="no-results"/>
+          </InfiniteLoading>
+
+          <v-list-item v-if="searchText && !exercises.length">
             <v-list-item-content>
               <v-list-item-title class="grey--text text--darken-1 text-center">
                 No exercise found with '{{ searchText }}'
@@ -88,6 +93,7 @@
 <script lang="ts">
   import Vue from 'vue';
   import {mapState} from 'vuex';
+  import InfiniteLoading, {StateChanger} from 'vue-infinite-loading';
   import Exercise from '@/models/Exercise';
 
   export default Vue.extend({
@@ -98,6 +104,9 @@
     data: () => ({
       showSearch: false,
       searchText: '',
+      page: 0,
+      results: 30,
+      exercises: Array<Exercise>(),
       selectedExercises: []
     }),
     methods: {
@@ -109,17 +118,33 @@
         } else {
           this.searchText = '';
         }
+      },
+      infiniteLoading(state: StateChanger): void {
+        const start = this.page * this.results;
+        const end = (this.page + 1) * this.results;
+
+        this.exercises.push(...this.items.slice(start, end))
+
+        if (end < this.items.length) {
+          this.page++
+          state.loaded()
+        } else {
+          state.complete()
+        }
       }
     },
     computed: {
       ...mapState({
-        exercises: (state: any) => state.exercises.items
+        items: (state: any) => state.exercises.items
       }),
       filteredExercises(): Array<Exercise> {
-        return this.exercises.filter((exercise: Exercise) => {
+        return this.items.filter((exercise: Exercise) => {
           return exercise.name.toLowerCase().match(this.searchText.toLowerCase());
         })
       }
+    },
+    components: {
+      InfiniteLoading,
     }
   });
 </script>
