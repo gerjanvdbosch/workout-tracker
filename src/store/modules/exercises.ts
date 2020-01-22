@@ -21,5 +21,13 @@ export default {
         })
       })
     }
+  },
+
+  getters: {
+    filteredExercises: (state: any) => (text: string) => {
+      return !text ? state.items : state.items.filter((exercise: Exercise) => {
+        return exercise.name.toLowerCase().match(text.toLowerCase());
+      })
+    }
   }
 }

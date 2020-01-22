@@ -97,7 +97,7 @@
     }),
     methods: {
       toggleDrawer(): void {
-        this.showDrawer = !this.showDrawer
+        this.showDrawer = !this.showDrawer;
       }
     }
   });
