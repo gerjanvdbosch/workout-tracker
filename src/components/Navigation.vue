@@ -59,8 +59,16 @@
       dark
       elevation="1"
     >
-      <v-app-bar-nav-icon @click="toggleDrawer"/>
-      <v-toolbar-title>Workout Log</v-toolbar-title>
+      <slot name="menu">
+        <v-app-bar-nav-icon @click="toggleDrawer"/>
+      </slot>
+
+      <slot name="title">
+        <v-toolbar-title>Workout Log</v-toolbar-title>
+      </slot>
+
+      <v-spacer/>
+      <slot name="options"/>
     </v-app-bar>
   </div>
 </template>

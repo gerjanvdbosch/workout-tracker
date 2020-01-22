@@ -1,41 +1,31 @@
 <template>
   <div>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-      elevation="1"
-    >
-      <v-btn
-        :to="{ path: '/' }"
-        replace
-        icon
-      >
-        <v-icon>mdi-arrow-left</v-icon>
-      </v-btn>
-      <v-toolbar-title v-if="!showSearch">Exercises</v-toolbar-title>
+    <Navigation>
+      <template v-slot:title>
+        <v-toolbar-title v-if="!showSearch">Exercises</v-toolbar-title>
+        <v-text-field
+          v-else
+          v-model="searchText"
+          ref="searchField"
+          flat
+          single-line
+          placeholder="Search"
+          hide-details
+          prepend-inner-icon="mdi-magnify"
+          class="pl-5"
+        />
+      </template>
 
-      <v-text-field
-        v-else
-        v-model="searchText"
-        ref="searchField"
-        flat
-        single-line
-        placeholder="Search"
-        hide-details
-        prepend-inner-icon="mdi-magnify"
-        class="pl-5"
-      />
-
-      <v-spacer/>
-      <v-btn
-        @click="toggleSearch"
-        icon
-      >
-        <v-icon v-if="showSearch">mdi-close</v-icon>
-        <v-icon v-else>mdi-magnify</v-icon>
-      </v-btn>
-    </v-app-bar>
+      <template v-slot:options>
+        <v-btn
+          @click="toggleSearch"
+          icon
+        >
+          <v-icon v-if="showSearch">mdi-close</v-icon>
+          <v-icon v-else>mdi-magnify</v-icon>
+        </v-btn>
+      </template>
+    </Navigation>
 
     <v-container fluid>
       <v-card
@@ -94,6 +84,7 @@
   import Vue from 'vue';
   import {mapState} from 'vuex';
   import InfiniteLoading, {StateChanger} from 'vue-infinite-loading';
+  import Navigation from '@/components/Navigation.vue';
   import Exercise from '@/models/Exercise';
 
   export default Vue.extend({
@@ -145,6 +136,7 @@
     },
     components: {
       InfiniteLoading,
+      Navigation
     }
   });
 </script>
