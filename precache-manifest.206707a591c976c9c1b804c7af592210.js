@@ -20,12 +20,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/workout-log/fonts/materialdesignicons-webfont.f81583fc.eot"
   },
   {
-    "revision": "83ea08ec246ffc11764fa6a31f035d1a",
+    "revision": "9be364c5c3e2536cd76d33955b9f9ed7",
     "url": "/workout-log/index.html"
   },
   {
-    "revision": "eebe78212c90a8c6468e",
-    "url": "/workout-log/js/app.724eb905.js"
+    "revision": "630ec72f4dfce06e7d7b",
+    "url": "/workout-log/js/app.fa391d55.js"
   },
   {
     "revision": "1ed67dd99d26d1b9b788",
