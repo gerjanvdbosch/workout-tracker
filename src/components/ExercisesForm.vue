@@ -72,7 +72,7 @@
             <div slot="no-results"/>
           </InfiniteLoading>
 
-          <v-list-item v-if="searchText && !exercises.length">
+          <v-list-item v-if="!exercises.length">
             <v-list-item-content>
               <v-list-item-title class="grey--text text--darken-1 text-center">
                 No exercise found with '{{ searchText }}'
@@ -99,6 +99,9 @@
     },
     computed: {
       ...mapGetters(['filteredExercises'])
+    },
+    mounted(): void {
+      this.resetState();
     },
     data: () => ({
       showSearch: false,
@@ -133,10 +136,12 @@
           state.complete();
         }
       },
-      resetState() {
+      resetState(): void {
+        const stateChanger = (<InfiniteLoading>this.$refs.infiniteLoading).stateChanger;
         this.page = 0;
-        this.exercises = [];
-        (<InfiniteLoading>this.$refs.infiniteLoading).stateChanger.reset();
+        this.exercises = Array<Exercise>();
+        stateChanger.reset();
+        this.infiniteLoading(stateChanger);
         window.scrollTo(0, 0);
       }
     },
