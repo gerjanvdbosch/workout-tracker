@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1ed67dd99d26d1b9b788",
-    "url": "/workout-log/css/chunk-vendors.05270e02.css"
+    "revision": "b717d44d3d6259874bbe",
+    "url": "/workout-log/css/chunk-vendors.cd352977.css"
   },
   {
     "revision": "1618c77b6c5c11926819a8868a083031",
@@ -20,16 +20,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/workout-log/fonts/materialdesignicons-webfont.f81583fc.eot"
   },
   {
-    "revision": "9be364c5c3e2536cd76d33955b9f9ed7",
+    "revision": "9533d21c8bdcc37dbdfd84771ad1fd6c",
     "url": "/workout-log/index.html"
   },
   {
-    "revision": "630ec72f4dfce06e7d7b",
-    "url": "/workout-log/js/app.fa391d55.js"
+    "revision": "eed72635b47e27bca87e",
+    "url": "/workout-log/js/app.029c44e9.js"
   },
   {
-    "revision": "1ed67dd99d26d1b9b788",
-    "url": "/workout-log/js/chunk-vendors.1e299a45.js"
+    "revision": "b717d44d3d6259874bbe",
+    "url": "/workout-log/js/chunk-vendors.ef1146ee.js"
   },
   {
     "revision": "be518e752805dcda8716224ae56f39d9",
