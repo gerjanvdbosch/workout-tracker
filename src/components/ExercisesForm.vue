@@ -1,6 +1,10 @@
 <template>
   <div>
     <Navigation>
+      <template v-slot:menu>
+        <slot name="menu"/>
+      </template>
+
       <template v-slot:title>
         <v-toolbar-title v-if="!showSearch">Exercises</v-toolbar-title>
         <v-text-field
@@ -18,10 +22,7 @@
       </template>
 
       <template v-slot:options>
-        <v-btn
-          @click="toggleSearch"
-          icon
-        >
+        <v-btn icon @click="toggleSearch">
           <v-icon v-if="showSearch">mdi-close</v-icon>
           <v-icon v-else>mdi-magnify</v-icon>
         </v-btn>
@@ -29,57 +30,50 @@
     </Navigation>
 
     <v-container fluid>
-      <v-card
-        elevation="1"
-        tile
-      >
-        <v-list>
-          <v-list-item
-            v-if="exercises.length"
-            v-for="exercise in exercises"
-            :key="exercise.name"
-            link
-          >
-            <v-list-item-avatar>
-              <v-avatar
-                :color="exercise.color"
-                class="white--text"
-                size="38"
-              >
-                {{ exercise.code }}
-              </v-avatar>
-            </v-list-item-avatar>
+      <v-card tile elevation="1">
+        <v-list-item
+          v-if="exercises.length"
+          v-for="exercise in exercises"
+          :key="exercise.name"
+        >
+          <v-list-item-avatar>
+            <v-avatar
+              :color="exercise.color"
+              class="white--text"
+              size="38"
+            >
+              {{ exercise.code }}
+            </v-avatar>
+          </v-list-item-avatar>
 
-            <v-list-item-content>
-              <v-list-item-title>{{ exercise.name }}</v-list-item-title>
-            </v-list-item-content>
+          <v-list-item-content>
+            <v-list-item-title>{{ exercise.name }}</v-list-item-title>
+          </v-list-item-content>
 
-            <v-list-item-action v-if="selectable">
-              <v-checkbox
-                v-model="selectedExercises"
-                :value="exercise.name"
-                color="primary"
-              />
-            </v-list-item-action>
-          </v-list-item>
+          <v-list-item-action v-if="selectable">
+            <v-checkbox
+              @change="selectExercise(exercise.name)"
+              color="primary"
+            />
+          </v-list-item-action>
+        </v-list-item>
 
-          <InfiniteLoading
-            @infinite="infiniteLoading"
-            :distance="400"
-            ref="infiniteLoading"
-          >
-            <div slot="no-more"/>
-            <div slot="no-results"/>
-          </InfiniteLoading>
+        <InfiniteLoading
+          @infinite="infiniteLoading"
+          :distance="400"
+          ref="infiniteLoading"
+        >
+          <div slot="no-more"/>
+          <div slot="no-results"/>
+        </InfiniteLoading>
 
-          <v-list-item v-if="!exercises.length">
-            <v-list-item-content>
-              <v-list-item-title class="grey--text text--darken-1 text-center">
-                No exercise found with '{{ searchText }}'
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
+        <v-list-item v-if="!exercises.length">
+          <v-list-item-content>
+            <v-list-item-title class="grey--text text--darken-1 text-center">
+              No exercise found with '{{ searchText }}'
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-card>
     </v-container>
   </div>
@@ -107,12 +101,11 @@
       showSearch: false,
       searchText: '',
       page: 0,
-      itemsPerPage: 30,
-      exercises: Array<Exercise>(),
-      selectedExercises: []
+      itemsPerPage: 10,
+      exercises: Array<Exercise>()
     }),
     methods: {
-      toggleSearch(): void {
+      toggleSearch() {
         this.showSearch = !this.showSearch;
 
         if (this.showSearch) {
@@ -122,7 +115,7 @@
           this.resetState();
         }
       },
-      infiniteLoading(state: StateChanger): void {
+      infiniteLoading(state: StateChanger) {
         const start = this.page * this.itemsPerPage;
         const end = (this.page + 1) * this.itemsPerPage;
         const exercises = this.filteredExercises(this.searchText);
@@ -136,13 +129,16 @@
           state.complete();
         }
       },
-      resetState(): void {
+      resetState() {
         const stateChanger = (<InfiniteLoading>this.$refs.infiniteLoading).stateChanger;
         this.page = 0;
         this.exercises = Array<Exercise>();
         stateChanger.reset();
         this.infiniteLoading(stateChanger);
         window.scrollTo(0, 0);
+      },
+      selectExercise(exercise: string) {
+        this.$emit('selectExercise', exercise);
       }
     },
     components: {

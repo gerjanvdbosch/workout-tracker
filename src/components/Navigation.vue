@@ -35,22 +35,20 @@
         </v-list-item>
       </v-card>
 
-      <v-list>
-        <v-list-item
-          v-for="item in items"
-          :to="item.to"
-          replace
-          link
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
+      <v-list-item
+        v-for="item in items"
+        :to="item.route"
+        replace
+        exact
+      >
+        <v-list-item-action>
+          <v-icon>{{ item.icon }}</v-icon>
+        </v-list-item-action>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ item.text }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+        <v-list-item-content>
+          <v-list-item-title>{{ item.text }}</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
     </v-navigation-drawer>
 
     <v-app-bar
@@ -63,10 +61,7 @@
         <v-app-bar-nav-icon @click="toggleDrawer"/>
       </slot>
 
-      <slot name="title">
-        <v-toolbar-title>Workout Log</v-toolbar-title>
-      </slot>
-
+      <slot name="title"/>
       <v-spacer/>
       <slot name="options"/>
     </v-app-bar>
@@ -82,21 +77,29 @@
       showDrawer: false,
       items: [
         {
+          icon: 'mdi-history',
+          text: 'History',
+          route: { name: 'history' }
+        },
+        {
           icon: 'mdi-scale-bathroom',
           text: 'Body',
-          to: '/'
+          route: { name: 'body' }
         },
         {
           icon: 'mdi-text',
           text: 'Exercises',
-          to: {
-            name: 'exercises'
-          }
+          route: { name: 'exercises' }
+        },
+        {
+          icon: 'mdi-weight-lifter',
+          text: 'Start workout',
+          route: { name: 'workout' }
         },
       ]
     }),
     methods: {
-      toggleDrawer(): void {
+      toggleDrawer() {
         this.showDrawer = !this.showDrawer;
       }
     }
