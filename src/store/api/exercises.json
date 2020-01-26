@@ -5,7 +5,7 @@
             "code": "AB",
             "color": "green"
         },
-        "items": [
+        "exercises": [
             { "name": "Ab Machine" },
             { "name": "Ab Roller" },
             { "name": "Ab Vacuum" },
@@ -39,7 +39,7 @@
             "code": "BA",
             "color": "blue"
         },
-        "items": [
+        "exercises": [
             { "name": "Assisted Chinup" },
             { "name": "Assisted Pullup" },
             { "name": "Barbell Bench Pull" },
@@ -103,7 +103,7 @@
             "code": "BI",
             "color": "red"
         },
-        "items": [
+        "exercises": [
             { "name": "Alternating Dumbbell Curl" },
             { "name": "Alternating Dumbbell Hammer Curl" },
             { "name": "Barbell Concentration Curl" },
@@ -144,7 +144,7 @@
             "code": "CH",
             "color": "orange"
         },
-        "items": [
+        "exercises": [
             { "name": "Barbell Bench Press" },
             { "name": "Barbell Floor Press" },
             { "name": "High Cable Crossover" },
@@ -184,7 +184,7 @@
             "code": "CA",
             "color": "pink"
         },
-        "items": [
+        "exercises": [
             { "name": "Barbell Calf Raise" },
             { "name": "Donkey Calf Raise" },
             { "name": "Dumbbell Calf Raise" },
@@ -202,7 +202,7 @@
             "code": "FO",
             "color": "purple"
         },
-        "items": [
+        "exercises": [
             { "name": "Barbell Wrist Curl" },
             { "name": "Cable Wrist Curl" },
             { "name": "Dumbbell Wrist Curl" },
@@ -215,7 +215,7 @@
             "code": "LE",
             "color": "indigo"
         },
-        "items": [
+        "exercises": [
             { "name": "Barbell Clean" },
             { "name": "Barbell Front Squat" },
             { "name": "Barbell Hack Squat" },
@@ -272,7 +272,7 @@
             "code": "SH",
             "color": "cyan"
         },
-        "items": [
+        "exercises": [
             { "name": "Alternating Dumbbell Front Raise" },
             { "name": "Alternating Dumbbell Side Raise" },
             { "name": "Alternating Kettlebell Shoulder Press" },
@@ -334,7 +334,7 @@
             "code": "TR",
             "color": "teal"
         },
-        "items": [
+        "exercises": [
             { "name": "Seated Barbell Triceps Extension" },
             { "name": "Bench Dip" },
             { "name": "Cable Lying Skull Crusher" },

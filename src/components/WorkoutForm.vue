@@ -2,15 +2,13 @@
   <div>
     <Navigation>
       <template v-slot:title>
-        <v-toolbar-title>Workout</v-toolbar-title>
+        <v-toolbar-title>Active workout</v-toolbar-title>
       </template>
     </Navigation>
 
     <v-container fluid>
       <v-card tile elevation="1">
-        <v-list-item
-          v-for="(exercise, index) in workout.exercises"
-        >
+        <v-list-item v-for="(exercise, index) in exercises">
           <v-list-item-avatar>
             <v-avatar
               color="primary"
@@ -26,14 +24,14 @@
             <v-list-item-subtitle>{{ exercise.sets.length }} sets</v-list-item-subtitle>
           </v-list-item-content>
 
-          <v-list-item-action>
-            <v-btn icon>
-              <v-icon>remove_circle</v-icon>
-            </v-btn>
-          </v-list-item-action>
+<!--          <v-list-item-action>-->
+<!--            <v-btn icon>-->
+<!--              <v-icon>mdi-minus</v-icon>-->
+<!--            </v-btn>-->
+<!--          </v-list-item-action>-->
         </v-list-item>
 
-        <v-list-item :to="{ name: 'workout_exercises' }">
+        <v-list-item @click="addExercise">
           <v-list-item-avatar>
             <v-avatar color="grey" size="38">
               <v-icon dark>mdi-plus</v-icon>
@@ -45,7 +43,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-card-text v-if="workout.exercises.length">
+        <v-card-text v-if="exercises.length">
           <v-btn tile elevation="1" @click="saveWorkout">
             Save
           </v-btn>
@@ -57,25 +55,22 @@
 
 <script lang="ts">
   import Vue from 'vue';
-  import uuid from 'uuid';
+  import {mapGetters} from 'vuex';
   import Navigation from '@/components/Navigation.vue';
-  import Exercise from '@/models/Workout/Exercise';
-  import Workout from '@/models/Workout/Workout';
 
   export default Vue.extend({
     name: 'WorkoutForm',
-    props: {
-      workout: {
-        default: () => <Workout>{
-          id: uuid(),
-          date: new Date(),
-          exercises: Array<Exercise>()
-        }
-      }
+    computed: {
+      ...mapGetters({
+        exercises: 'getWorkoutExercises'
+      })
     },
     methods: {
+      addExercise() {
+        this.$router.replace({ name: 'workout_exercises' });
+      },
       saveWorkout() {
-        this.$store.commit('saveWorkout', this.$props.workout);
+        // this.$store.commit('saveWorkout');
         this.$router.replace('/');
       }
     },

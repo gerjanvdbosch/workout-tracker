@@ -16,6 +16,7 @@
     name: 'Exercises',
     methods: {
       selectExercise(exercise: string) {
+        this.$store.commit('addWorkoutExercise', exercise);
         this.$router.replace({ name: 'workout' });
       }
     },

@@ -2,7 +2,7 @@
   <div>
     <Navigation>
       <template v-slot:title>
-        <v-toolbar-title>Workout Log</v-toolbar-title>
+        <v-toolbar-title>History</v-toolbar-title>
       </template>
     </Navigation>
 

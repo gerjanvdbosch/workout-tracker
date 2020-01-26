@@ -52,7 +52,7 @@
 
           <v-list-item-action v-if="selectable">
             <v-checkbox
-              @change="selectExercise(exercise.name)"
+              @click="selectExercise(exercise.name)"
               color="primary"
             />
           </v-list-item-action>
@@ -60,7 +60,7 @@
 
         <InfiniteLoading
           @infinite="infiniteLoading"
-          :distance="400"
+          :distance="500"
           ref="infiniteLoading"
         >
           <div slot="no-more"/>

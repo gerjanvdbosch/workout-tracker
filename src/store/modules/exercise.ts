@@ -3,7 +3,7 @@ import Exercise from '@/models/Exercise';
 
 export default {
   state: {
-    items: Array<Exercise>()
+    exercises: Array<Exercise>()
   },
 
   mutations: {
@@ -11,8 +11,8 @@ export default {
       json.forEach((exercise) => {
         const group = exercise.group;
 
-        exercise.items.forEach((item) => {
-          state.items.push({
+        exercise.exercises.forEach((item) => {
+          state.exercises.push({
             name: item.name,
             code: group.code,
             group: group.name,
@@ -25,7 +25,7 @@ export default {
 
   getters: {
     filteredExercises: (state: any) => (text: string) => {
-      return !text ? state.items : state.items.filter((exercise: Exercise) => {
+      return !text ? state.exercises : state.exercises.filter((exercise: Exercise) => {
         return exercise.name.toLowerCase().match(text.toLowerCase());
       })
     }
