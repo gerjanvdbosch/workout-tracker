@@ -52,8 +52,14 @@
 
           <v-list-item-action v-if="selectable">
             <v-checkbox
-              @click="selectExercise(exercise.name)"
+              v-if="selectedExercises.includes(exercise.name)"
+              input-value="true"
+              disabled
+            />
+            <v-checkbox
+              v-else
               color="primary"
+              @click="selectExercise(exercise.name)"
             />
           </v-list-item-action>
         </v-list-item>
@@ -89,7 +95,11 @@
   export default Vue.extend({
     name: 'ExercisesForm',
     props: {
-      selectable: Boolean
+      selectable: Boolean,
+      selectedExercises: {
+        type: Array,
+        default: () => []
+      }
     },
     computed: {
       ...mapGetters(['filteredExercises'])
