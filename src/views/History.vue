@@ -8,9 +8,18 @@
 
     <v-container fluid>
       <v-card tile elevation="1">
-        <v-list>
+        <v-list-item v-for="workout in workouts">
+          <v-list-item-avatar>
+            <v-avatar color="primary" size="38">
+              <v-icon dark>mdi-weight-lifter</v-icon>
+            </v-avatar>
+          </v-list-item-avatar>
 
-        </v-list>
+          <v-list-item-content>
+            <v-list-item-title>{{ workout.date|moment('calendar') }}</v-list-item-title>
+            <v-list-item-subtitle>{{ workout.exercises.length }} exercises</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
       </v-card>
     </v-container>
   </div>
@@ -19,9 +28,15 @@
 <script lang="ts">
   import Vue from 'vue';
   import Navigation from '@/components/Navigation.vue';
+  import {mapGetters} from 'vuex';
 
   export default Vue.extend({
     name: 'History',
+    computed: {
+      ...mapGetters({
+        workouts: 'getWorkouts'
+      })
+    },
     components: {
       Navigation
     },

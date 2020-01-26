@@ -59,7 +59,7 @@
             <v-checkbox
               v-else
               color="primary"
-              @click="selectExercise(exercise.name)"
+              @change="selectExercise(exercise.name)"
             />
           </v-list-item-action>
         </v-list-item>
@@ -87,6 +87,7 @@
 
 <script lang="ts">
   import Vue from 'vue';
+  import _ from 'lodash';
   import {mapGetters} from 'vuex';
   import InfiniteLoading, {StateChanger} from 'vue-infinite-loading';
   import Navigation from '@/components/Navigation.vue';
@@ -142,14 +143,14 @@
       resetState() {
         const stateChanger = (<InfiniteLoading>this.$refs.infiniteLoading).stateChanger;
         this.page = 0;
-        this.exercises = Array<Exercise>();
+        this.exercises = [];
         stateChanger.reset();
         this.infiniteLoading(stateChanger);
         window.scrollTo(0, 0);
       },
-      selectExercise(exercise: string) {
+      selectExercise: _.debounce(function(this: any, exercise: string) {
         this.$emit('selectExercise', exercise);
-      }
+      }, 100)
     },
     components: {
       InfiniteLoading,

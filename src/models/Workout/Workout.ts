@@ -4,5 +4,4 @@ export default interface Workout {
   id: string
   date: Date
   exercises: Array<Exercise>
-  notes: string
 }

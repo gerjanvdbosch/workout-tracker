@@ -8,9 +8,7 @@
 
     <v-container fluid>
       <v-card tile elevation="1">
-        <v-list>
 
-        </v-list>
       </v-card>
     </v-container>
   </div>

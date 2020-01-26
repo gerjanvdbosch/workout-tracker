@@ -44,7 +44,7 @@
         </v-list-item>
 
         <v-card-text v-if="exercises.length">
-          <v-btn tile elevation="1" @click="saveWorkout">
+          <v-btn tile elevation="1" @click="finishWorkout">
             Save
           </v-btn>
         </v-card-text>
@@ -69,8 +69,8 @@
       addExercise() {
         this.$router.replace({ name: 'workout_exercises' });
       },
-      saveWorkout() {
-        // this.$store.commit('saveWorkout');
+      finishWorkout() {
+        this.$store.commit('finishWorkout');
         this.$router.replace('/');
       }
     },
