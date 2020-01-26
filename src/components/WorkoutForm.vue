@@ -2,7 +2,7 @@
   <div>
     <Navigation>
       <template v-slot:title>
-        <v-toolbar-title>Active workout</v-toolbar-title>
+        <v-toolbar-title>Workout</v-toolbar-title>
       </template>
     </Navigation>
 

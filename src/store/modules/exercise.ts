@@ -1,5 +1,6 @@
 import json from '@/store/api/exercises.json'
 import Exercise from '@/models/Exercise';
+import _ from 'lodash';
 
 export default {
   state: {
@@ -19,7 +20,9 @@ export default {
             color: group.color,
           })
         })
-      })
+      });
+
+      state.exercises = _.orderBy(state.exercises, 'name');
     }
   },
 
