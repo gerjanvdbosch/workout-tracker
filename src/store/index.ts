@@ -7,6 +7,7 @@ import exercise from '@/store/modules/exercise';
 import workout from '@/store/modules/workout';
 
 export default new Vuex.Store({
+  strict: true,
   modules: {
     exercise,
     workout

@@ -2,7 +2,8 @@
   <ExercisesForm
     :selectable="true"
     :selected-exercises="selectedExercises"
-    @selectExercise="selectExercise">
+    @selectExercise="selectExercise"
+  >
     <template v-slot:menu>
       <v-btn icon exact replace :to="{ name: 'workout' }">
         <v-icon>mdi-arrow-left</v-icon>
@@ -14,7 +15,7 @@
 <script lang="ts">
   import Vue from 'vue';
   import {mapGetters} from 'vuex';
-  import ExercisesForm from '@/components/ExercisesForm.vue';
+  import ExercisesForm from '@/views/ExercisesForm.vue';
   import Exercise from '@/models/Workout/Exercise';
 
   export default Vue.extend({

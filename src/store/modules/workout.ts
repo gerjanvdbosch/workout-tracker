@@ -8,6 +8,7 @@ export default {
     activeWorkout: {
       exercises: Array<Exercise>()
     },
+    goals: Array,
     workouts: Array<Workout>()
   },
 
@@ -24,6 +25,9 @@ export default {
         name: exercise,
         sets: Array<Set>()
       });
+    },
+    addExerciseSet: function (state: any, index: number) {
+      state.activeWorkout.exercises[index].sets.push(<Set>{});
     },
     finishWorkout: function (state: any) {
       state.workouts.push(<Workout>{

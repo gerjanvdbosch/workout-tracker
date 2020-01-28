@@ -8,7 +8,11 @@
 
     <v-container fluid>
       <v-card tile elevation="1">
-        <v-list-item v-for="(exercise, index) in exercises">
+        <v-list-item
+          v-for="(exercise, index) in exercises"
+          replace
+          :to="{ name: 'workout_exercise', params: { 'index': index } }"
+        >
           <v-list-item-avatar>
             <v-avatar
               color="primary"
