@@ -64,6 +64,14 @@
           </v-list-item-action>
         </v-list-item>
 
+        <v-list-item v-if="!exercises.length">
+          <v-list-item-content>
+            <v-list-item-title class="grey--text text--darken-1 text-center">
+              No exercise found with '{{ searchText }}'
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
         <InfiniteLoading
           @infinite="infiniteLoading"
           :distance="500"
@@ -72,14 +80,6 @@
           <div slot="no-more"/>
           <div slot="no-results"/>
         </InfiniteLoading>
-
-        <v-list-item v-if="!exercises.length">
-          <v-list-item-content>
-            <v-list-item-title class="grey--text text--darken-1 text-center">
-              No exercise found with '{{ searchText }}'
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
       </v-card>
     </v-container>
   </div>
