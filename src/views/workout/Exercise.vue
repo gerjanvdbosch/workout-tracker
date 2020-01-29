@@ -1,13 +1,13 @@
 <template>
   <div>
     <Navigation>
-      <template v-slot:menu>
+      <template slot="menu">
         <v-btn icon exact replace :to="{ name: 'workout' }">
           <v-icon>mdi-arrow-left</v-icon>
         </v-btn>
       </template>
 
-      <template v-slot:title>
+      <template slot="title">
         <v-toolbar-title>{{ exercise.name }}</v-toolbar-title>
       </template>
     </Navigation>
@@ -86,7 +86,7 @@
   import Navigation from '@/components/Navigation.vue';
 
   export default Vue.extend({
-    name: 'ExerciseForm',
+    name: 'Exercise',
     computed: {
       ...mapGetters(['getWorkoutExercises']),
       exercise() {

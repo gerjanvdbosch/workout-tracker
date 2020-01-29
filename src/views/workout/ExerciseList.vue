@@ -1,25 +1,25 @@
 <template>
-  <ExercisesForm
+  <VueExerciseList
     :selectable="true"
     :selected-exercises="selectedExercises"
     @selectExercise="selectExercise"
   >
-    <template v-slot:menu>
+    <template slot="menu">
       <v-btn icon exact replace :to="{ name: 'workout' }">
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
     </template>
-  </ExercisesForm>
+  </VueExerciseList>
 </template>
 
 <script lang="ts">
   import Vue from 'vue';
   import {mapGetters} from 'vuex';
-  import ExercisesForm from '@/views/ExercisesForm.vue';
-  import Exercise from '@/models/Workout/Exercise';
+  import Exercise from '@/models/workout/Exercise';
+  import VueExerciseList from '@/components/ExerciseList.vue';
 
   export default Vue.extend({
-    name: 'Exercises',
+    name: 'ExerciseList',
     computed: {
       ...mapGetters(['getWorkoutExercises']),
       selectedExercises() {
@@ -35,7 +35,7 @@
       }
     },
     components: {
-      ExercisesForm
+      VueExerciseList
     },
   });
 </script>

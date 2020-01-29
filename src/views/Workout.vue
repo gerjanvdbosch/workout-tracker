@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navigation>
-      <template v-slot:title>
+      <template slot="title">
         <v-toolbar-title>Workout</v-toolbar-title>
       </template>
     </Navigation>
@@ -63,7 +63,7 @@
   import Navigation from '@/components/Navigation.vue';
 
   export default Vue.extend({
-    name: 'WorkoutForm',
+    name: 'Workout',
     computed: {
       ...mapGetters({
         exercises: 'getWorkoutExercises'

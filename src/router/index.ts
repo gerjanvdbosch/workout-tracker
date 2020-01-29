@@ -1,51 +1,38 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Goals from '@/views/Goals.vue';
-import History from '@/views/History.vue';
-import Body from '@/views/Body.vue';
-import ExercisesForm from '@/views/ExercisesForm.vue';
-import WorkoutForm from '@/views/Workout/WorkoutForm.vue';
-import ExerciseForm from '@/views/Workout/ExerciseForm.vue';
-import WorkoutExercises from '@/views/Workout/Exercises.vue';
-
 Vue.use(VueRouter);
 
 const routes = [
   {
-    name: 'goals',
-    path: '/',
-    component: Goals
-  },
-  {
     name: 'history',
-    path: '/history',
-    component: History
-  },
-  {
-    name: 'exercises',
-    path: '/exercises',
-    component: ExercisesForm
+    path: '/',
+    component: () => import('@/views/History.vue')
   },
   {
     name: 'body',
     path: '/body',
-    component: Body
+    component: () => import('@/views/Body.vue')
+  },
+  {
+    name: 'exercises',
+    path: '/exercises',
+    component: () => import('@/views/ExerciseList.vue')
   },
   {
     name: 'workout',
     path: '/workout',
-    component: WorkoutForm
-  },
-  {
-    name: 'workout_exercises',
-    path: '/workout/exercises',
-    component: WorkoutExercises
+    component: () => import('@/views/Workout.vue')
   },
   {
     name: 'workout_exercise',
     path: '/workout/exercise/:index',
-    component: ExerciseForm
+    component: () => import('@/views/workout/Exercise.vue')
+  },
+  {
+    name: 'workout_exercises',
+    path: '/workout/exercises',
+    component: () => import('@/views/workout/ExerciseList.vue')
   }
 ];
 

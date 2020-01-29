@@ -1,7 +1,7 @@
 import uuid from 'uuid';
-import Workout from '@/models/Workout/Workout';
-import Exercise from '@/models/Workout/Exercise';
-import Set from '@/models/Workout/Set';
+import Workout from '@/models/Workout';
+import Exercise from '@/models/workout/Exercise';
+import Set from '@/models/workout/Set';
 
 export default {
   state: {

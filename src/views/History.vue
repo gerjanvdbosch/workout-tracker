@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navigation>
-      <template v-slot:title>
+      <template slot="title">
         <v-toolbar-title>History</v-toolbar-title>
       </template>
     </Navigation>

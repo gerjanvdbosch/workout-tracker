@@ -3,13 +3,13 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-import exercise from '@/store/modules/exercise';
-import workout from '@/store/modules/workout';
+import exercises from '@/store/modules/exercises';
+import workouts from '@/store/modules/workouts';
 
 export default new Vuex.Store({
   strict: true,
   modules: {
-    exercise,
-    workout
+    exercises,
+    workouts
   }
 })

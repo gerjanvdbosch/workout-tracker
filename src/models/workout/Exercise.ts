@@ -1,4 +1,4 @@
-import Set from '@/models/Workout/Set';
+import Set from '@/models/workout/Set';
 
 export default interface Exercise {
   name: string

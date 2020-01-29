@@ -1,9 +1,9 @@
 <template>
   <div>
     <Navigation>
-      <template v-slot:title>
+      <template slot="title">
         <v-toolbar-title>Body</v-toolbar-title>
-      </template>
+      </template>>
     </Navigation>
 
     <v-container fluid>
