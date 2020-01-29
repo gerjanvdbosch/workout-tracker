@@ -34,6 +34,9 @@
       itemsPerPage: 10,
       paginatedItems: Array<any>()
     }),
+    mounted() {
+      this.reset();
+    },
     methods: {
       load(state: StateChanger) {
         const start = this.page * this.itemsPerPage;
