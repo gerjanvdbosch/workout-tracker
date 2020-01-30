@@ -1,14 +1,13 @@
+import _ from 'lodash';
 import uuid from 'uuid';
 import Workout from '@/models/Workout';
 import Exercise from '@/models/workout/Exercise';
-import Set from '@/models/workout/Set';
 
 export default {
   state: {
     activeWorkout: {
       exercises: Array<Exercise>()
     },
-    goals: Array,
     workouts: Array<Workout>()
   },
 
@@ -20,14 +19,8 @@ export default {
         Object.assign(state.workouts, JSON.parse(workouts))
       }
     },
-    addWorkoutExercise: function (state: any, exercise: string) {
-      state.activeWorkout.exercises.push(<Exercise>{
-        name: exercise,
-        sets: Array<Set>()
-      });
-    },
-    addExerciseSet: function (state: any, index: number) {
-      state.activeWorkout.exercises[index].sets.push(<Set>{});
+    setActiveWorkout: function (state: any, workout: Workout) {
+      state.activeWorkout = workout;
     },
     finishWorkout: function (state: any) {
       state.workouts.push(<Workout>{
@@ -48,8 +41,8 @@ export default {
   },
 
   getters: {
-    getWorkoutExercises: (state: any) => {
-      return state.activeWorkout.exercises;
+    getActiveWorkout: (state: any) => {
+      return _.cloneDeep(state.activeWorkout);
     },
     getWorkouts: (state: any) => {
       return state.workouts.slice().reverse();

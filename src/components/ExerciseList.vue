@@ -100,9 +100,9 @@
       searchText: ''
     }),
     computed: {
-      ...mapGetters(['filteredExercises']),
+      ...mapGetters(['searchExercises']),
       exercises(): Array<Exercise> {
-        return this.filteredExercises(this.searchText);
+        return this.searchExercises(this.searchText);
       }
     },
     methods: {

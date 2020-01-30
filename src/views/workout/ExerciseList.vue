@@ -16,22 +16,30 @@
   import Vue from 'vue';
   import {mapGetters} from 'vuex';
   import Exercise from '@/models/workout/Exercise';
+  import Set from '@/models/workout/Set';
   import VueExerciseList from '@/components/ExerciseList.vue';
 
   export default Vue.extend({
     name: 'ExerciseList',
     computed: {
-      ...mapGetters(['getWorkoutExercises']),
+      ...mapGetters({
+        workout: 'getActiveWorkout'
+      }),
       selectedExercises() {
-        return this.getWorkoutExercises.map(function (exercise: Exercise) {
+        return this.workout.exercises.map(function (exercise: Exercise) {
           return exercise.name
         });
       }
     },
     methods: {
       selectExercise(exercise: string) {
-        this.$store.commit('addWorkoutExercise', exercise);
-        this.$router.replace({ name: 'workout' });
+        this.workout.exercises.push(<Exercise>{
+          name: exercise,
+          sets: Array<Set>()
+        });
+
+        this.$store.commit('setActiveWorkout', this.workout);
+        this.$router.replace({name: 'workout'});
       }
     },
     components: {

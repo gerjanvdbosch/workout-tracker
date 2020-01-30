@@ -18,7 +18,7 @@ export default {
             code: group.code,
             group: group.name,
             color: group.color,
-          })
+          });
         })
       });
 
@@ -27,10 +27,10 @@ export default {
   },
 
   getters: {
-    filteredExercises: (state: any) => (text: string) => {
+    searchExercises: (state: any) => (text: string) => {
       return !text ? state.exercises : state.exercises.filter((exercise: Exercise) => {
         return exercise.name.toLowerCase().match(text.toLowerCase());
-      })
+      });
     }
   }
 }

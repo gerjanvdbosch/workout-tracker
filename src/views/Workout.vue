@@ -9,7 +9,7 @@
     <v-container fluid>
       <v-card tile elevation="1">
         <v-list-item
-          v-for="(exercise, index) in exercises"
+          v-for="(exercise, index) in workout.exercises"
           replace
           :to="{ name: 'workout_exercise', params: { 'index': index } }"
         >
@@ -47,7 +47,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-card-text v-if="exercises.length">
+        <v-card-text v-if="workout.exercises.length">
           <v-btn tile elevation="1" @click="finishWorkout">
             Save
           </v-btn>
@@ -66,7 +66,7 @@
     name: 'Workout',
     computed: {
       ...mapGetters({
-        exercises: 'getWorkoutExercises'
+        workout: 'getActiveWorkout'
       })
     },
     methods: {
