@@ -39,7 +39,7 @@
         });
 
         this.$store.commit('setActiveWorkout', this.workout);
-        this.$router.replace({name: 'workout'});
+        this.$router.replace({ name: 'workout' });
       }
     },
     components: {

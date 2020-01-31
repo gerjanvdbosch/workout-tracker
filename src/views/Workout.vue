@@ -35,7 +35,7 @@
 <!--          </v-list-item-action>-->
         </v-list-item>
 
-        <v-list-item @click="addExercise">
+        <v-list-item replace :to="{ name: 'workout_exercise_list' }">
           <v-list-item-avatar>
             <v-avatar color="grey" size="38">
               <v-icon dark>mdi-plus</v-icon>
@@ -70,9 +70,6 @@
       })
     },
     methods: {
-      addExercise() {
-        this.$router.replace({ name: 'workout_exercises' });
-      },
       finishWorkout() {
         this.$store.commit('finishWorkout');
         this.$router.replace('/');

@@ -15,7 +15,7 @@ const routes = [
     component: () => import('@/views/Body.vue')
   },
   {
-    name: 'exercises',
+    name: 'exercise_list',
     path: '/exercises',
     component: () => import('@/views/ExerciseList.vue')
   },
@@ -30,7 +30,7 @@ const routes = [
     component: () => import('@/views/workout/Exercise.vue')
   },
   {
-    name: 'workout_exercises',
+    name: 'workout_exercise_list',
     path: '/workout/exercises',
     component: () => import('@/views/workout/ExerciseList.vue')
   }

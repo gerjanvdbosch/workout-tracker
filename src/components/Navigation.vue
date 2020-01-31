@@ -89,7 +89,7 @@
         {
           icon: 'mdi-text',
           text: 'Exercises',
-          route: { name: 'exercises' }
+          route: { name: 'exercise_list' }
         },
         {
           icon: 'mdi-weight-lifter',

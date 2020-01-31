@@ -25,7 +25,7 @@
             </v-avatar>
           </v-list-item-avatar>
 
-          <v-list-item-content class="pt-0">
+          <v-list-item-content class="pt-0 pb-2">
             <v-row>
               <v-col class="pt-0 pb-0">
                 <v-text-field
@@ -46,11 +46,11 @@
             </v-row>
           </v-list-item-content>
 
-          <v-list-item-action>
-            <v-btn icon>
-              <v-icon>mdi-minus</v-icon>
-            </v-btn>
-          </v-list-item-action>
+<!--          <v-list-item-action>-->
+<!--            <v-btn icon @click="removeSet">-->
+<!--              <v-icon>mdi-minus</v-icon>-->
+<!--            </v-btn>-->
+<!--          </v-list-item-action>-->
         </v-list-item>
 
         <v-list-item @click="addSet">
@@ -65,16 +65,11 @@
           </v-list-item-content>
         </v-list-item>
 
-<!--        <v-card-text>-->
-<!--          <v-btn-->
-<!--            :to="{ name: 'workout_edit', params: { 'workout': workout.id }}"-->
-<!--            tile-->
-<!--            elevation="1"-->
-<!--            class="mr-3"-->
-<!--          >-->
-<!--            Save-->
-<!--          </v-btn>-->
-<!--        </v-card-text>-->
+        <v-card-text v-if="exercise.sets.length">
+          <v-btn tile elevation="1" exact replace :to="{ name: 'workout' }">
+            Done
+          </v-btn>
+        </v-card-text>
       </v-card>
     </v-container>
   </div>
@@ -84,18 +79,23 @@
   import Vue from 'vue';
   import {mapGetters} from 'vuex';
   import Navigation from '@/components/Navigation.vue';
+  import Exercise from '@/models/workout/Exercise';
+  import Set from '@/models/workout/Set';
 
   export default Vue.extend({
     name: 'Exercise',
     computed: {
-      ...mapGetters(['getWorkoutExercises']),
-      exercise() {
-        return this.getWorkoutExercises[this.$route.params.index];
+      ...mapGetters({
+        workout: 'getActiveWorkout'
+      }),
+      exercise(): Exercise {
+        return this.workout.exercises[this.$route.params.index];
       }
     },
     methods: {
       addSet() {
-        this.$store.commit('addExerciseSet', this.$route.params.index);
+        this.exercise.sets.push(<Set>{});
+        this.$store.commit('setActiveWorkout', this.workout);
       }
     },
     components: {
