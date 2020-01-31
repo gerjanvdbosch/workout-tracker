@@ -10,6 +10,11 @@ const routes = [
     component: () => import('@/views/History.vue')
   },
   {
+    name: 'history_workout',
+    path: '/history/workout/:id',
+    component: () => import('@/views/history/Workout.vue')
+  },
+  {
     name: 'body',
     path: '/body',
     component: () => import('@/views/Body.vue')

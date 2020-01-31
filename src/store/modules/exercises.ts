@@ -31,6 +31,9 @@ export default {
       return !text ? state.exercises : state.exercises.filter((exercise: Exercise) => {
         return exercise.name.toLowerCase().match(text.toLowerCase());
       });
+    },
+    getExercise: (state: any) => (name: string) => {
+      return state.exercises.find((item: Exercise) => item.name == name);
     }
   }
 }

@@ -12,15 +12,10 @@
           v-for="(exercise, index) in workout.exercises"
           replace
           :to="{ name: 'workout_exercise', params: { 'index': index } }"
+          style="height: 61px;"
         >
           <v-list-item-avatar>
-            <v-avatar
-              color="primary"
-              class="white--text"
-              size="38"
-            >
-              {{ index + 1 }}
-            </v-avatar>
+           <ExerciseAvatar :name="exercise.name"/>
           </v-list-item-avatar>
 
           <v-list-item-content>
@@ -35,10 +30,14 @@
 <!--          </v-list-item-action>-->
         </v-list-item>
 
-        <v-list-item replace :to="{ name: 'workout_exercise_list' }">
+        <v-list-item
+          replace
+          :to="{ name: 'workout_exercise_list' }"
+          style="height: 61px;"
+        >
           <v-list-item-avatar>
-            <v-avatar color="grey" size="38">
-              <v-icon dark>mdi-plus</v-icon>
+            <v-avatar color="grey lighten-2" size="38">
+              <v-icon>mdi-plus</v-icon>
             </v-avatar>
           </v-list-item-avatar>
 
@@ -61,6 +60,7 @@
   import Vue from 'vue';
   import {mapGetters} from 'vuex';
   import Navigation from '@/components/Navigation.vue';
+  import ExerciseAvatar from '@/components/ExerciseAvatar.vue';
 
   export default Vue.extend({
     name: 'Workout',
@@ -76,7 +76,8 @@
       }
     },
     components: {
-      Navigation
+      Navigation,
+      ExerciseAvatar
     }
   });
 </script>

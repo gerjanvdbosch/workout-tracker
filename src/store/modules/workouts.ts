@@ -46,9 +46,9 @@ export default {
     },
     getWorkouts: (state: any) => {
       return state.workouts.slice().reverse();
+    },
+    getWorkout: (state: any) => (id: string) => {
+      return state.workouts.find((item: Workout) => item.id == id);
     }
-    // getWorkout: (state: any) => (id: string) => {
-    //   return state.workouts.find((item: Workout) => item.id == id);
-    // }
   }
 }

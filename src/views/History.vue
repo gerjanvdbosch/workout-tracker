@@ -8,10 +8,15 @@
 
     <v-container fluid>
       <v-card tile elevation="1">
-        <v-list-item v-for="workout in workouts">
+        <v-list-item
+          v-for="workout in workouts"
+          replace
+          :to="{ name: 'history_workout', params: { id: workout.id } }"
+          style="height: 61px;"
+        >
           <v-list-item-avatar>
-            <v-avatar color="primary" size="38">
-              <v-icon dark>mdi-weight-lifter</v-icon>
+            <v-avatar color="grey lighten-2" size="38">
+              <v-icon>mdi-weight-lifter</v-icon>
             </v-avatar>
           </v-list-item-avatar>
 
