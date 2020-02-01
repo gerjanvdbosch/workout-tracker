@@ -33,7 +33,7 @@
       <v-card tile elevation="1">
         <InfiniteLoading :items="exercises" ref="infiniteLoading">
           <template v-slot="{ item }">
-            <v-list-item style="height: 61px;">
+            <v-list-item style="height: 56px;">
               <v-list-item-avatar>
                 <v-avatar
                   :color="item.color"

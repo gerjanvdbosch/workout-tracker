@@ -14,7 +14,7 @@
 
     <v-container fluid>
       <v-card tile elevation="1">
-        <v-list-item style="height: 61px;">
+        <v-list-item style="height: 56px;">
           <v-list-item-avatar>
             <ExerciseAvatar :name="exercise.name"/>
           </v-list-item-avatar>
@@ -26,10 +26,10 @@
 
         <v-list-item
           v-for="(set, index) in exercise.sets"
-          style="height: 61px;"
+          style="height: 56px;"
         >
           <v-list-item-avatar>
-            <v-avatar style="border: 1px solid grey;" size="30">
+            <v-avatar style="border: 1px solid black;" size="30">
               {{ index + 1 }}
             </v-avatar>
           </v-list-item-avatar>
@@ -40,7 +40,9 @@
                 <v-text-field
                   v-model="set.weight"
                   type="number"
+                  step="0.5"
                   label="Weight"
+                  suffix="kg"
                   class="mt-0"
                   hide-details
                 />
@@ -66,11 +68,11 @@
 
         <v-list-item
           @click="addSet"
-          style="height: 61px;"
+          style="height: 56px;"
         >
           <v-list-item-avatar>
-            <v-avatar style="border: 1px solid grey;" size="30">
-              <v-icon>mdi-plus</v-icon>
+            <v-avatar style="border: 1px solid black;" size="30">
+              <v-icon color="black">mdi-plus</v-icon>
             </v-avatar>
           </v-list-item-avatar>
 

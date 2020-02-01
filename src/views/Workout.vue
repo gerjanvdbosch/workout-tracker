@@ -12,7 +12,7 @@
           v-for="(exercise, index) in workout.exercises"
           replace
           :to="{ name: 'workout_exercise', params: { 'index': index } }"
-          style="height: 61px;"
+          style="height: 56px;"
         >
           <v-list-item-avatar>
            <ExerciseAvatar :name="exercise.name"/>
@@ -33,7 +33,7 @@
         <v-list-item
           replace
           :to="{ name: 'workout_exercise_list' }"
-          style="height: 61px;"
+          style="height: 56px;"
         >
           <v-list-item-avatar>
             <v-avatar color="grey lighten-2" size="38">

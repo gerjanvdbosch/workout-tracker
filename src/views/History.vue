@@ -12,7 +12,7 @@
           v-for="workout in workouts"
           replace
           :to="{ name: 'history_workout', params: { id: workout.id } }"
-          style="height: 61px;"
+          style="height: 56px;"
         >
           <v-list-item-avatar>
             <v-avatar color="grey lighten-2" size="38">

@@ -23,9 +23,6 @@
       exercise(): Exercise {
         return this.getExercise(this.name);
       }
-    },
-    methods: {
-
-    },
+    }
   });
 </script>
