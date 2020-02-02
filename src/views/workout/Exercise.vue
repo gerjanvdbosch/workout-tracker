@@ -29,7 +29,7 @@
           style="height: 56px;"
         >
           <v-list-item-avatar>
-            <v-avatar style="border: 1px solid black;" size="30">
+            <v-avatar color="grey--text text--darken-2" style="border: 1px solid #616161;" size="30">
               {{ index + 1 }}
             </v-avatar>
           </v-list-item-avatar>
@@ -59,11 +59,11 @@
             </v-row>
           </v-list-item-content>
 
-<!--          <v-list-item-action>-->
-<!--            <v-btn icon @click="removeSet">-->
-<!--              <v-icon>mdi-minus</v-icon>-->
-<!--            </v-btn>-->
-<!--          </v-list-item-action>-->
+          <v-list-item-action>
+            <v-btn icon>
+              <v-icon>mdi-delete</v-icon>
+            </v-btn>
+          </v-list-item-action>
         </v-list-item>
 
         <v-list-item
@@ -71,8 +71,8 @@
           style="height: 56px;"
         >
           <v-list-item-avatar>
-            <v-avatar style="border: 1px solid black;" size="30">
-              <v-icon color="black">mdi-plus</v-icon>
+            <v-avatar style="border: 1px solid #616161;" size="30">
+              <v-icon>mdi-plus</v-icon>
             </v-avatar>
           </v-list-item-avatar>
 
@@ -80,12 +80,6 @@
             <v-list-item-title>Add set</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-
-        <v-card-text v-if="exercise.sets.length">
-          <v-btn tile elevation="1" exact replace :to="{ name: 'workout' }">
-            Done
-          </v-btn>
-        </v-card-text>
       </v-card>
     </v-container>
   </div>

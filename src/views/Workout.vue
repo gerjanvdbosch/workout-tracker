@@ -4,6 +4,16 @@
       <template slot="title">
         <v-toolbar-title>Workout</v-toolbar-title>
       </template>
+
+      <template slot="options">
+        <v-btn
+          v-if="workout.exercises.length"
+          @click="finishWorkout"
+          icon
+        >
+          <v-icon>mdi-check</v-icon>
+        </v-btn>
+      </template>
     </Navigation>
 
     <v-container fluid>
@@ -22,12 +32,6 @@
             <v-list-item-title>{{ exercise.name }}</v-list-item-title>
             <v-list-item-subtitle>{{ exercise.sets.length }} sets</v-list-item-subtitle>
           </v-list-item-content>
-
-<!--          <v-list-item-action>-->
-<!--            <v-btn icon>-->
-<!--              <v-icon>mdi-minus</v-icon>-->
-<!--            </v-btn>-->
-<!--          </v-list-item-action>-->
         </v-list-item>
 
         <v-list-item
@@ -45,12 +49,6 @@
             <v-list-item-title>Add exercise</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-
-        <v-card-text v-if="workout.exercises.length">
-          <v-btn tile elevation="1" @click="finishWorkout">
-            Save
-          </v-btn>
-        </v-card-text>
       </v-card>
     </v-container>
   </div>

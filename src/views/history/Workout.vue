@@ -27,7 +27,7 @@
 
           <v-list-item v-for="(set, index) in exercise.sets" style="height: 48px;">
             <v-list-item-avatar>
-              <v-avatar style="border: 1px solid black;" size="30">
+              <v-avatar color="grey--text text--darken-2" style="border: 1px solid #616161;" size="30">
                 {{ index + 1 }}
               </v-avatar>
             </v-list-item-avatar>
