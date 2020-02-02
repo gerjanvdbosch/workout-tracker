@@ -2,7 +2,7 @@
   <div>
     <Navigation>
       <template slot="menu">
-        <v-btn icon exact replace :to="{ name: 'workout' }">
+        <v-btn icon @click="updateWorkout">
           <v-icon>mdi-arrow-left</v-icon>
         </v-btn>
       </template>
@@ -60,7 +60,7 @@
           </v-list-item-content>
 
           <v-list-item-action>
-            <v-btn icon>
+            <v-btn icon @click="removeSet(index)">
               <v-icon>mdi-delete</v-icon>
             </v-btn>
           </v-list-item-action>
@@ -95,18 +95,27 @@
 
   export default Vue.extend({
     name: 'Exercise',
+    data: () => ({
+      exercise: {} as Exercise
+    }),
+    created() {
+      this.exercise = this.workout.exercises[this.$route.params.index];
+    },
     computed: {
       ...mapGetters({
         workout: 'getActiveWorkout'
-      }),
-      exercise(): Exercise {
-        return this.workout.exercises[this.$route.params.index];
-      }
+      })
     },
     methods: {
       addSet() {
         this.exercise.sets.push(<Set>{});
+      },
+      removeSet(index: number) {
+        this.exercise.sets.splice(index, 1);
+      },
+      updateWorkout() {
         this.$store.commit('setActiveWorkout', this.workout);
+        this.$router.replace({ name: 'workout' });
       }
     },
     components: {

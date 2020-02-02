@@ -9,9 +9,10 @@
         <v-btn
           v-if="workout.exercises.length"
           @click="finishWorkout"
-          icon
+          outlined
+          tile
         >
-          <v-icon>mdi-check</v-icon>
+          Save
         </v-btn>
       </template>
     </Navigation>
