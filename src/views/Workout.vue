@@ -6,14 +6,14 @@
       </template>
 
       <template slot="options" v-if="workout.exercises.length">
-        <v-menu content-class="elevation-2 custom-tile">
+        <v-menu content-class="elevation-2 c-tile">
           <template v-slot:activator="{ on }">
             <v-btn icon v-on="on">
               <v-icon>mdi-dots-vertical</v-icon>
             </v-btn>
           </template>
 
-          <v-list class="pt-0 pb-0 custom-tile">
+          <v-list class="pt-0 pb-0 c-tile">
             <v-list-item @click="finishWorkout">
               <v-list-item-title>Finish workout</v-list-item-title>
             </v-list-item>
@@ -32,7 +32,7 @@
           v-for="(exercise, index) in workout.exercises"
           replace
           :to="{ name: 'workout_exercise', params: { 'index': index } }"
-          class="custom-list-item"
+          class="c-list-item"
         >
           <v-list-item-avatar>
             <ExerciseAvatar :name="exercise.name"/>
@@ -47,7 +47,7 @@
         <v-list-item
           replace
           :to="{ name: 'workout_exercise_list' }"
-          class="custom-list-item"
+          class="c-list-item"
         >
           <v-list-item-avatar>
             <v-avatar color="grey lighten-2" size="38">

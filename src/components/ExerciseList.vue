@@ -33,7 +33,7 @@
       <v-card tile elevation="1">
         <InfiniteLoading :items="exercises" ref="infiniteLoading">
           <template v-slot="{ item }">
-            <v-list-item class="custom-list-item">
+            <v-list-item class="c-list-item">
               <v-list-item-avatar>
                 <v-avatar
                   :color="item.color"
@@ -64,7 +64,7 @@
           </template>
 
           <template slot="no-items">
-            <v-list-item class="custom-list-item">
+            <v-list-item class="c-list-item">
               <v-list-item-content>
                 <v-list-item-title class="grey--text text--darken-1 text-center">
                   No exercise found with '{{ searchText }}'

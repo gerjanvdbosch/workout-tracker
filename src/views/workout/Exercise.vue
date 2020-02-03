@@ -12,14 +12,14 @@
       </template>
 
       <template slot="options">
-        <v-menu content-class="elevation-2 custom-tile">
+        <v-menu content-class="elevation-2 c-tile">
           <template v-slot:activator="{ on }">
             <v-btn icon v-on="on">
               <v-icon>mdi-dots-vertical</v-icon>
             </v-btn>
           </template>
 
-          <v-list class="pt-0 pb-0 custom-tile">
+          <v-list class="pt-0 pb-0 c-tile">
             <v-list-item>
               <v-list-item-title>Remove exercise</v-list-item-title>
             </v-list-item>
@@ -30,7 +30,7 @@
 
     <v-container fluid>
       <v-card tile elevation="1">
-        <v-list-item class="custom-list-item">
+        <v-list-item class="c-list-item">
           <v-list-item-avatar>
             <ExerciseAvatar :name="exercise.name"/>
           </v-list-item-avatar>
@@ -42,10 +42,10 @@
 
         <v-list-item
           v-for="(set, index) in exercise.sets"
-          class="custom-list-item pr-1"
+          class="c-list-item pr-1"
         >
           <v-list-item-avatar>
-            <v-avatar color="grey--text text--darken-2 custom-border-grey" size="30">
+            <v-avatar color="grey--text text--darken-2 c-border-grey" size="30">
               {{ index + 1 }}
             </v-avatar>
           </v-list-item-avatar>
@@ -77,14 +77,14 @@
           </v-list-item-content>
 
           <v-list-item-action class="ml-0">
-            <v-menu content-class="elevation-2 custom-tile" offset-y>
+            <v-menu content-class="elevation-2 c-tile" offset-y>
               <template v-slot:activator="{ on }">
                 <v-btn icon v-on="on">
                   <v-icon>mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
 
-              <v-list class="pt-0 pb-0 custom-tile">
+              <v-list class="pt-0 pb-0 c-tile">
                 <v-list-item @click="removeSet(index)">
                   <v-list-item-title>Remove set</v-list-item-title>
                 </v-list-item>
@@ -93,9 +93,9 @@
           </v-list-item-action>
         </v-list-item>
 
-        <v-list-item @click="addSet" class="custom-list-item">
+        <v-list-item @click="addSet" class="c-list-item">
           <v-list-item-avatar>
-            <v-avatar class="custom-border-grey" size="30">
+            <v-avatar class="c-border-grey" size="30">
               <v-icon>mdi-plus</v-icon>
             </v-avatar>
           </v-list-item-avatar>

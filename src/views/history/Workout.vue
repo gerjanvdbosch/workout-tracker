@@ -12,14 +12,14 @@
       </template>
 
       <template slot="options">
-        <v-menu content-class="elevation-2 custom-tile">
+        <v-menu content-class="elevation-2 c-tile">
           <template v-slot:activator="{ on }">
             <v-btn icon v-on="on">
               <v-icon>mdi-dots-vertical</v-icon>
             </v-btn>
           </template>
 
-          <v-list class="pt-0 pb-0 custom-tile">
+          <v-list class="pt-0 pb-0 c-tile">
             <v-list-item @click="removeWorkout">
               <v-list-item-title>Remove workout</v-list-item-title>
             </v-list-item>
@@ -31,7 +31,7 @@
     <v-container fluid>
       <v-card tile elevation="1">
         <div v-for="exercise in workout.exercises">
-          <v-list-item class="custom-list-item">
+          <v-list-item class="c-list-item">
             <v-list-item-avatar>
               <ExerciseAvatar :name="exercise.name"/>
             </v-list-item-avatar>
@@ -43,7 +43,7 @@
 
           <v-list-item v-for="(set, index) in exercise.sets" style="height: 48px;">
             <v-list-item-avatar>
-              <v-avatar color="grey--text text--darken-2 custom-border-grey" size="30">
+              <v-avatar color="grey--text text--darken-2 c-border-grey" size="30">
                 {{ index + 1 }}
               </v-avatar>
             </v-list-item-avatar>

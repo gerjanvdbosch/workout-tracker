@@ -1,11 +1,11 @@
-.custom-list-item {
+.c-list-item {
     height: 56px;
 }
 
-.custom-border-grey {
+.c-border-grey {
     border: 1px solid #616161;
 }
 
-.custom-tile {
+.c-tile {
     border-radius: 0 !important;
 }
