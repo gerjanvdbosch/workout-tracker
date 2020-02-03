@@ -121,7 +121,7 @@
       },
       selectExercise: _.debounce(function (this: any, exercise: string) {
         this.$emit('selectExercise', exercise);
-      }, 60)
+      }, 50)
     },
     components: {
       InfiniteLoading,
