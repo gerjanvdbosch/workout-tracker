@@ -8,7 +8,7 @@
       </template>
 
       <template slot="title">
-        <v-toolbar-title>Workout</v-toolbar-title>
+        <v-toolbar-title>Exercise</v-toolbar-title>
       </template>
 
       <template slot="options">

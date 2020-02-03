@@ -8,7 +8,13 @@
 
     <v-container fluid>
       <v-card tile elevation="1">
-
+        <v-list-item class="c-list-item">
+          <v-list-item-content>
+            <v-list-item-title class="grey--text text-center">
+              No logs found
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-card>
     </v-container>
   </div>

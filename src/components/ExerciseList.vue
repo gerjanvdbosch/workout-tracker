@@ -66,7 +66,7 @@
           <template slot="no-items">
             <v-list-item class="c-list-item">
               <v-list-item-content>
-                <v-list-item-title class="grey--text text--darken-1 text-center">
+                <v-list-item-title class="grey--text text-center">
                   No exercise found with '{{ searchText }}'
                 </v-list-item-title>
               </v-list-item-content>
