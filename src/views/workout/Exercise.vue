@@ -10,11 +10,27 @@
       <template slot="title">
         <v-toolbar-title>Workout</v-toolbar-title>
       </template>
+
+      <template slot="options">
+        <v-menu content-class="elevation-2 custom-tile">
+          <template v-slot:activator="{ on }">
+            <v-btn icon v-on="on">
+              <v-icon>mdi-dots-vertical</v-icon>
+            </v-btn>
+          </template>
+
+          <v-list class="pt-0 pb-0 custom-tile">
+            <v-list-item>
+              <v-list-item-title>Remove exercise</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </template>
     </Navigation>
 
     <v-container fluid>
       <v-card tile elevation="1">
-        <v-list-item style="height: 56px;">
+        <v-list-item class="custom-list-item">
           <v-list-item-avatar>
             <ExerciseAvatar :name="exercise.name"/>
           </v-list-item-avatar>
@@ -26,10 +42,10 @@
 
         <v-list-item
           v-for="(set, index) in exercise.sets"
-          style="height: 56px;"
+          class="custom-list-item pr-1"
         >
           <v-list-item-avatar>
-            <v-avatar color="grey--text text--darken-2" style="border: 1px solid #616161;" size="30">
+            <v-avatar color="grey--text text--darken-2 custom-border-grey" size="30">
               {{ index + 1 }}
             </v-avatar>
           </v-list-item-avatar>
@@ -47,6 +63,7 @@
                   hide-details
                 />
               </v-col>
+
               <v-col class="pt-0 pb-0">
                 <v-text-field
                   v-model="set.reps"
@@ -59,19 +76,26 @@
             </v-row>
           </v-list-item-content>
 
-          <v-list-item-action>
-            <v-btn icon @click="removeSet(index)">
-              <v-icon>mdi-delete</v-icon>
-            </v-btn>
+          <v-list-item-action class="ml-0">
+            <v-menu content-class="elevation-2 custom-tile" offset-y>
+              <template v-slot:activator="{ on }">
+                <v-btn icon v-on="on">
+                  <v-icon>mdi-dots-vertical</v-icon>
+                </v-btn>
+              </template>
+
+              <v-list class="pt-0 pb-0 custom-tile">
+                <v-list-item @click="removeSet(index)">
+                  <v-list-item-title>Remove set</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
           </v-list-item-action>
         </v-list-item>
 
-        <v-list-item
-          @click="addSet"
-          style="height: 56px;"
-        >
+        <v-list-item @click="addSet" class="custom-list-item">
           <v-list-item-avatar>
-            <v-avatar style="border: 1px solid #616161;" size="30">
+            <v-avatar class="custom-border-grey" size="30">
               <v-icon>mdi-plus</v-icon>
             </v-avatar>
           </v-list-item-avatar>

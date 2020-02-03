@@ -5,15 +5,24 @@
         <v-toolbar-title>Workout</v-toolbar-title>
       </template>
 
-      <template slot="options">
-        <v-btn
-          v-if="workout.exercises.length"
-          @click="finishWorkout"
-          outlined
-          tile
-        >
-          Save
-        </v-btn>
+      <template slot="options" v-if="workout.exercises.length">
+        <v-menu content-class="elevation-2 custom-tile">
+          <template v-slot:activator="{ on }">
+            <v-btn icon v-on="on">
+              <v-icon>mdi-dots-vertical</v-icon>
+            </v-btn>
+          </template>
+
+          <v-list class="pt-0 pb-0 custom-tile">
+            <v-list-item @click="finishWorkout">
+              <v-list-item-title>Finish workout</v-list-item-title>
+            </v-list-item>
+
+            <v-list-item @click="cancelWorkout">
+              <v-list-item-title>Cancel workout</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </template>
     </Navigation>
 
@@ -23,10 +32,10 @@
           v-for="(exercise, index) in workout.exercises"
           replace
           :to="{ name: 'workout_exercise', params: { 'index': index } }"
-          style="height: 56px;"
+          class="custom-list-item"
         >
           <v-list-item-avatar>
-           <ExerciseAvatar :name="exercise.name"/>
+            <ExerciseAvatar :name="exercise.name"/>
           </v-list-item-avatar>
 
           <v-list-item-content>
@@ -38,7 +47,7 @@
         <v-list-item
           replace
           :to="{ name: 'workout_exercise_list' }"
-          style="height: 56px;"
+          class="custom-list-item"
         >
           <v-list-item-avatar>
             <v-avatar color="grey lighten-2" size="38">
@@ -70,7 +79,11 @@
     },
     methods: {
       finishWorkout() {
-        this.$store.commit('finishWorkout');
+        this.$store.commit('finishActiveWorkout');
+        this.$router.replace('/');
+      },
+      cancelWorkout() {
+        this.$store.commit('cancelActiveWorkout');
         this.$router.replace('/');
       }
     },

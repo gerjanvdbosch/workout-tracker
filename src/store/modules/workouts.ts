@@ -22,7 +22,7 @@ export default {
     setActiveWorkout: function (state: any, workout: Workout) {
       state.activeWorkout = workout;
     },
-    finishWorkout: function (state: any) {
+    finishActiveWorkout: function (state: any) {
       state.workouts.push(<Workout>{
         id: uuid(),
         date: new Date(),
@@ -31,13 +31,16 @@ export default {
 
       state.activeWorkout.exercises = [];
     },
-    // removeWorkout: function (state: any, id: string) {
-    //   const index = state.workouts.findIndex((item: Workout) => item.id == id);
-    //
-    //   if (index !== -1) {
-    //     state.workouts.splice(index, 1);
-    //   }
-    // }
+    cancelActiveWorkout: function (state: any) {
+      state.activeWorkout.exercises = [];
+    },
+    removeWorkout: function (state: any, id: string) {
+      const index = state.workouts.findIndex((item: Workout) => item.id == id);
+
+      if (index !== -1) {
+        state.workouts.splice(index, 1);
+      }
+    }
   },
 
   getters: {
