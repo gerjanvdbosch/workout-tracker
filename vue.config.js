@@ -9,14 +9,7 @@ module.exports = {
     name: 'Workout Log',
     themeColor: '#1976D2',
     manifestOptions: {
-      background_color: '#1976D2',
-      icons: [
-        {
-          'src': 'https://api.iconify.design/mdi-weight-lifter.svg',
-          'type': 'image/svg',
-          'purpose': 'any'
-        }
-      ]
+      background_color: '#1976D2'
     }
   }
 };
