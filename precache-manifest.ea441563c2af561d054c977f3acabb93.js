@@ -40,7 +40,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/workout-log/fonts/materialdesignicons-webfont.f81583fc.eot"
   },
   {
-    "revision": "8f25b22cdd4fd9a0907c4dcc03d194c7",
+    "revision": "406fadb28d6a46f101ce7ef3e6778b05",
     "url": "/workout-log/index.html"
   },
   {
