@@ -8,8 +8,6 @@ module.exports = {
   pwa: {
     name: 'Workout Log',
     themeColor: '#1976D2',
-    msTileColor: '#1976D2',
-    appleMobileWebAppCapable: 'yes',
     manifestOptions: {
       background_color: '#1976D2'
     }
