@@ -17,8 +17,8 @@ module.exports = {
           'type': 'image/png'
         },
         {
-          'src': './img/icons/android-chrome-192x192.png',
-          'sizes': '192x192',
+          'src': './img/icons/android-chrome-144x144.png',
+          'sizes': '144x144',
           'type': 'image/png'
         }
       ]
