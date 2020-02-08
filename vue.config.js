@@ -9,14 +9,7 @@ module.exports = {
     name: 'Workout Log',
     themeColor: '#1976D2',
     manifestOptions: {
-      background_color: '#1976D2',
-      icons: [
-        {
-          'src': './img/icons/android-chrome-512x512.png',
-          'sizes': '512x512',
-          'type': 'image/png'
-        }
-      ]
+      background_color: '#1976D2'
     }
   }
 };
