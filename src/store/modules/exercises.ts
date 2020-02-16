@@ -15,6 +15,7 @@ export default {
         exercise.exercises.forEach((item) => {
           state.exercises.push({
             name: item.name,
+            type: item.type,
             code: group.code,
             group: group.name,
             color: group.color,

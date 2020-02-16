@@ -20,7 +20,7 @@
           </template>
 
           <v-list class="pt-0 pb-0 c-tile">
-            <v-list-item>
+            <v-list-item @click="removeExercise">
               <v-list-item-title>Remove exercise</v-list-item-title>
             </v-list-item>
           </v-list>
@@ -123,7 +123,7 @@
       exercise: {} as Exercise
     }),
     created() {
-      this.exercise = this.workout.exercises[this.$route.params.index];
+      this.exercise = this.workout.exercises[this.getIndex()];
     },
     computed: {
       ...mapGetters({
@@ -131,14 +131,24 @@
       })
     },
     methods: {
+      getIndex() {
+        return this.$route.params.index;
+      },
       addSet() {
         this.exercise.sets.push(<Set>{});
       },
       removeSet(index: number) {
         this.exercise.sets.splice(index, 1);
       },
+      removeExercise() {
+        this.workout.exercises.splice(this.getIndex(), 1);
+        this.goBack();
+      },
       updateWorkout() {
         this.$store.commit('setActiveWorkout', this.workout);
+        this.goBack();
+      },
+      goBack() {
         this.$router.replace({ name: 'workout' });
       }
     },
