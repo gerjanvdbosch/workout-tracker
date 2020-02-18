@@ -57,7 +57,7 @@ export default new Vuex.Store({
       state.activeWorkout.exercises = [];
     },
     removeWorkout: function (state: any, id: string) {
-      const index = state.workouts.findIndex((item: Workout) => item.id == id);
+      const index = state.workouts.findIndex((item: Workout) => item.id === id);
 
       if (index !== -1) {
         state.workouts.splice(index, 1);
@@ -71,7 +71,7 @@ export default new Vuex.Store({
       });
     },
     getExercise: (state: any) => (name: string) => {
-      return state.exercises.find((item: Exercise) => item.name == name);
+      return state.exercises.find((item: Exercise) => item.name === name);
     },
     getActiveWorkout: (state: any) => {
       return fillExercises(_.cloneDeep(state.activeWorkout), state.exercises);
@@ -80,14 +80,14 @@ export default new Vuex.Store({
       return state.workouts.slice().reverse();
     },
     getWorkout: (state: any) => (id: string) => {
-      return fillExercises(state.workouts.find((item: Workout) => item.id == id), state.exercises);
+      return fillExercises(state.workouts.find((item: Workout) => item.id === id), state.exercises);
     }
   }
 });
 
 function fillExercises(workout: Workout, exercises: Array<Exercise>) {
   for (let i = 0; i < workout.exercises.length; i++) {
-    const exercise = exercises.find((item: Exercise) => item.name == workout.exercises[i].name);
+    const exercise = exercises.find((item: Exercise) => item.name === workout.exercises[i].name);
 
     if (exercise) {
       Object.assign(workout.exercises[i], exercise);

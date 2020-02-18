@@ -60,6 +60,14 @@
             <v-row>
               <v-col class="pt-0 pb-0">
                 <v-text-field
+                  v-if="exercise.type === 'body' || exercise.type === 'time'"
+                  label="Bodyweight"
+                  class="mt-0"
+                  hide-details
+                  disabled
+                />
+                <v-text-field
+                  v-else
                   v-model="set.weight"
                   type="number"
                   step="0.5"
@@ -72,8 +80,19 @@
 
               <v-col class="pt-0 pb-0">
                 <v-text-field
+                  v-if="exercise.type === 'time'"
                   v-model="set.reps"
                   type="number"
+                  step="1"
+                  label="Secs"
+                  class="mt-0"
+                  hide-details
+                />
+                <v-text-field
+                  v-else
+                  v-model="set.reps"
+                  type="number"
+                  step="1"
                   label="Reps"
                   class="mt-0"
                   hide-details
