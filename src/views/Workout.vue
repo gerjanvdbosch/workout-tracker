@@ -35,7 +35,13 @@
           class="c-list-item"
         >
           <v-list-item-avatar>
-            <ExerciseAvatar :name="exercise.name"/>
+            <v-avatar
+              :color="exercise.color"
+              class="white--text"
+              size="38"
+            >
+              {{ exercise.code }}
+            </v-avatar>
           </v-list-item-avatar>
 
           <v-list-item-content>
@@ -68,7 +74,6 @@
   import Vue from 'vue';
   import {mapGetters} from 'vuex';
   import Navigation from '@/components/Navigation.vue';
-  import ExerciseAvatar from '@/components/ExerciseAvatar.vue';
 
   export default Vue.extend({
     name: 'Workout',
@@ -88,8 +93,7 @@
       }
     },
     components: {
-      Navigation,
-      ExerciseAvatar
+      Navigation
     }
   });
 </script>

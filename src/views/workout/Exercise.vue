@@ -32,7 +32,13 @@
       <v-card tile elevation="1">
         <v-list-item class="c-list-item">
           <v-list-item-avatar>
-            <ExerciseAvatar :name="exercise.name"/>
+            <v-avatar
+              :color="exercise.color"
+              class="white--text"
+              size="38"
+            >
+              {{ exercise.code }}
+            </v-avatar>
           </v-list-item-avatar>
 
           <v-list-item-content>
@@ -113,9 +119,8 @@
   import Vue from 'vue';
   import {mapGetters} from 'vuex';
   import Navigation from '@/components/Navigation.vue';
-  import ExerciseAvatar from '@/components/ExerciseAvatar.vue';
-  import Exercise from '@/models/workout/Exercise';
-  import Set from '@/models/workout/Set';
+  import Exercise from '@/models/Exercise';
+  import Set from '@/models/Set';
 
   export default Vue.extend({
     name: 'Exercise',
@@ -153,8 +158,7 @@
       }
     },
     components: {
-      Navigation,
-      ExerciseAvatar
+      Navigation
     }
   });
 </script>

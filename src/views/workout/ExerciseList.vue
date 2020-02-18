@@ -15,8 +15,8 @@
 <script lang="ts">
   import Vue from 'vue';
   import {mapGetters} from 'vuex';
-  import Exercise from '@/models/workout/Exercise';
-  import Set from '@/models/workout/Set';
+  import Exercise from '@/models/Exercise';
+  import Set from '@/models/Set';
   import VueExerciseList from '@/components/ExerciseList.vue';
 
   export default Vue.extend({
