@@ -48,7 +48,12 @@ export default new Vuex.Store({
       state.workouts.push(<Workout>{
         id: uuid(),
         date: new Date(),
-        exercises: state.activeWorkout.exercises
+        exercises: state.activeWorkout.exercises.map((exercise: Exercise) => {
+          return <Exercise>{
+            name: exercise.name,
+            sets: exercise.sets
+          }
+        })
       });
 
       state.activeWorkout.exercises = [];
@@ -70,22 +75,26 @@ export default new Vuex.Store({
         return exercise.name.toLowerCase().match(text.toLowerCase());
       });
     },
-    getExercise: (state: any) => (name: string) => {
-      return state.exercises.find((item: Exercise) => item.name === name);
-    },
     getActiveWorkout: (state: any) => {
-      return fillExercises(_.cloneDeep(state.activeWorkout), state.exercises);
+      return _.cloneDeep(state.activeWorkout);
     },
     getWorkouts: (state: any) => {
       return state.workouts.slice().reverse();
     },
     getWorkout: (state: any) => (id: string) => {
       return fillExercises(state.workouts.find((item: Workout) => item.id === id), state.exercises);
+    },
+    getLogCount: (state: any) => {
+      return state.workouts.length;
     }
   }
 });
 
 function fillExercises(workout: Workout, exercises: Array<Exercise>) {
+  if (!workout) {
+    return;
+  }
+
   for (let i = 0; i < workout.exercises.length; i++) {
     const exercise = exercises.find((item: Exercise) => item.name === workout.exercises[i].name);
 

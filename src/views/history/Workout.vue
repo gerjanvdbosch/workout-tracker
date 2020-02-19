@@ -29,7 +29,7 @@
     </Navigation>
 
     <v-container fluid>
-      <v-card tile elevation="1">
+      <v-card v-if="workout" tile elevation="1">
         <div v-for="exercise in workout.exercises">
           <v-list-item class="c-list-item">
             <v-list-item-avatar>
@@ -55,7 +55,18 @@
             </v-list-item-avatar>
 
             <v-list-item-content>
-              <v-list-item-title>{{ set.weight }} kg x {{ set.reps }} reps</v-list-item-title>
+              <v-list-item-title>
+                <span v-if="exercise.type !== 'body' && exercise.type !== 'time'">
+                  {{ set.weight }} kg x
+                </span>
+                {{ set.reps }}
+                <span v-if="exercise.type === 'time'">
+                  seconds
+                </span>
+                <span v-else>
+                  reps
+                </span>
+              </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </div>

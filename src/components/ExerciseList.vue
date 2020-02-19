@@ -57,7 +57,7 @@
                 <v-checkbox
                   v-else
                   color="primary"
-                  @change="selectExercise(item.name)"
+                  @change="selectExercise(item)"
                 />
               </v-list-item-action>
             </v-list-item>
@@ -119,8 +119,8 @@
       reset() {
         (<any>this.$refs.infiniteLoading).reset();
       },
-      selectExercise: _.debounce(function (this: any, exercise: string) {
-        this.$emit('selectExercise', exercise);
+      selectExercise: _.debounce(function (this: any, exercise: Exercise) {
+        this.$emit('selectExercise', _.cloneDeep(exercise));
       }, 50)
     },
     components: {

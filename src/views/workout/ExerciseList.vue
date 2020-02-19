@@ -32,11 +32,10 @@
       }
     },
     methods: {
-      selectExercise(exercise: string) {
-        this.workout.exercises.push(<Exercise>{
-          name: exercise,
-          sets: Array<Set>()
-        });
+      selectExercise(exercise: Exercise) {
+        exercise.sets = Array<Set>();
+
+        this.workout.exercises.push(exercise);
 
         this.$store.commit('setActiveWorkout', this.workout);
         this.$router.replace({ name: 'workout' });

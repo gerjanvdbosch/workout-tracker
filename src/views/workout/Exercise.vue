@@ -84,7 +84,7 @@
                   v-model="set.reps"
                   type="number"
                   step="1"
-                  label="Secs"
+                  label="Seconds"
                   class="mt-0"
                   hide-details
                 />
