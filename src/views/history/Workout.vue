@@ -33,11 +33,7 @@
         <div v-for="exercise in workout.exercises">
           <v-list-item class="c-list-item">
             <v-list-item-avatar>
-              <v-avatar
-                :color="exercise.color"
-                class="white--text"
-                size="38"
-              >
+              <v-avatar :color="exercise.color" class="white--text" size="38">
                 {{ exercise.code }}
               </v-avatar>
             </v-list-item-avatar>
@@ -56,16 +52,10 @@
 
             <v-list-item-content>
               <v-list-item-title>
-                <span v-if="exercise.type !== 'body' && exercise.type !== 'time'">
-                  {{ set.weight }} kg x
-                </span>
+                <span v-if="exercise.type !== 'body' && exercise.type !== 'time'">{{ set.weight }} kg x</span>
                 {{ set.reps }}
-                <span v-if="exercise.type === 'time'">
-                  seconds
-                </span>
-                <span v-else>
-                  reps
-                </span>
+                <span v-if="exercise.type === 'time'">seconds</span>
+                <span v-else>reps</span>
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>

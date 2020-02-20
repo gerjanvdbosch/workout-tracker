@@ -35,11 +35,7 @@
           class="c-list-item"
         >
           <v-list-item-avatar>
-            <v-avatar
-              :color="exercise.color"
-              class="white--text"
-              size="38"
-            >
+            <v-avatar :color="exercise.color" class="white--text" size="38">
               {{ exercise.code }}
             </v-avatar>
           </v-list-item-avatar>

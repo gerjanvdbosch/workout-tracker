@@ -22,8 +22,8 @@
             </v-list-item-avatar>
 
             <v-list-item-content>
-              <v-list-item-title>{{ workout.date|moment('calendar') }}</v-list-item-title>
-              <v-list-item-subtitle>{{ workout.exercises.length }} exercises</v-list-item-subtitle>
+              <v-list-item-title>{{ workout.name }}</v-list-item-title>
+              <v-list-item-subtitle>{{ workout.date|moment('calendar') }}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </div>

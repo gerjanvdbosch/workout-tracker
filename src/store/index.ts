@@ -79,10 +79,27 @@ export default new Vuex.Store({
       return _.cloneDeep(state.activeWorkout);
     },
     getWorkouts: (state: any) => {
-      return state.workouts.slice().reverse();
+      return _.cloneDeep(state.workouts).reverse().map((item: Workout) => {
+        const workout = fillExercises(item, state.exercises);
+        const groups = _.countBy(workout.exercises, 'group');
+
+        let counts = Object.keys(groups).map(name => {
+          return { name, count: groups[name]};
+        });
+
+        counts = _.orderBy(counts, 'count', 'desc').slice(0, 2);
+
+        workout.name = counts.map(e => e.name).join(' and ');
+
+        return workout;
+      });
     },
     getWorkout: (state: any) => (id: string) => {
-      return fillExercises(state.workouts.find((item: Workout) => item.id === id), state.exercises);
+      const workout = state.workouts.find((item: Workout) => item.id === id);
+
+      if (workout) {
+        return fillExercises(_.cloneDeep(workout), state.exercises);
+      }
     },
     getLogCount: (state: any) => {
       return state.workouts.length;
@@ -91,10 +108,6 @@ export default new Vuex.Store({
 });
 
 function fillExercises(workout: Workout, exercises: Array<Exercise>) {
-  if (!workout) {
-    return;
-  }
-
   for (let i = 0; i < workout.exercises.length; i++) {
     const exercise = exercises.find((item: Exercise) => item.name === workout.exercises[i].name);
 

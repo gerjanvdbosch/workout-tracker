@@ -35,11 +35,7 @@
           <template v-slot="{ item }">
             <v-list-item class="c-list-item">
               <v-list-item-avatar>
-                <v-avatar
-                  :color="item.color"
-                  class="white--text"
-                  size="38"
-                >
+                <v-avatar :color="item.color" class="white--text" size="38">
                   {{ item.code }}
                 </v-avatar>
               </v-list-item-avatar>
