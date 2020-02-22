@@ -12,25 +12,32 @@ export default {
   },
   mutations: {
     initialize(state: any) {
+      const activeWorkout = localStorage.getItem('activeWorkout');
       const workouts = localStorage.getItem('workouts');
+
+      if (activeWorkout) {
+        Object.assign(state.activeWorkout, JSON.parse(activeWorkout))
+      }
 
       if (workouts) {
         Object.assign(state.workouts, JSON.parse(workouts))
       }
     },
     setActiveWorkout: function (state: any, workout: Workout) {
+      workout.exercises = workout.exercises.map((exercise: Exercise) => {
+        return <Exercise>{
+          name: exercise.name,
+          sets: exercise.sets
+        }
+      });
+
       state.activeWorkout = workout;
     },
     finishActiveWorkout: function (state: any) {
       state.workouts.unshift(<Workout>{
         id: uuid(),
         date: new Date(),
-        exercises: state.activeWorkout.exercises.map((exercise: Exercise) => {
-          return <Exercise>{
-            name: exercise.name,
-            sets: exercise.sets
-          }
-        })
+        exercises: state.activeWorkout.exercises
       });
 
       state.activeWorkout.exercises = [];
@@ -47,24 +54,24 @@ export default {
     }
   },
   getters: {
-    getActiveWorkout: (state: any) => {
-      return _.cloneDeep(state.activeWorkout);
+    getActiveWorkout: (state: any, getters: any) => {
+      return getters.fillWorkout(state.activeWorkout);
     },
     getWorkouts: (state: any, getters: any) => {
       return state.workouts.map((workout: Workout) => {
         workout = getters.fillWorkout(workout);
-        workout.name = getters.getGroups(workout);
+        workout.name = getters.getGroups(workout, 2).map(e => e.name).join(' and ');
 
         return workout;
       });
     },
-    getGroups: () => (workout: Workout) => {
+    getGroups: () => (workout: Workout, items: number) => {
       const groups = _.countBy(workout.exercises, 'group');
       let counts = Object.keys(groups).map(name => {
         return { name, count: groups[name]};
       });
 
-      return _.orderBy(counts, 'count', 'desc').slice(0, 2).map(e => e.name).join(' and ');
+      return _.orderBy(counts, 'count', 'desc').slice(0, items);
     },
     getWorkout: (state: any, getters: any) => (id: string) => {
       const workout = state.workouts.find((item: Workout) => item.id === id);
