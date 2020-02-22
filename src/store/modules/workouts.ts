@@ -60,7 +60,7 @@ export default {
     getWorkouts: (state: any, getters: any) => {
       return state.workouts.map((workout: Workout) => {
         workout = getters.fillWorkout(workout);
-        workout.name = getters.getGroups(workout, 2).map(e => e.name).join(' and ');
+        workout.name = getters.getGroups(workout, 2).map((e: any) => e.name).join(' and ');
 
         return workout;
       });
