@@ -32,7 +32,7 @@
     <v-container fluid>
       <v-card tile elevation="1">
         <InfiniteLoading :items="exercises" ref="infiniteLoading">
-          <template v-slot="{ item }">
+          <template v-slot:item="{ item }">
             <v-list-item class="c-list-item">
               <v-list-item-avatar>
                 <v-avatar :color="item.color" class="white--text" size="38">

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="paginatedItems.length" v-for="item in paginatedItems">
-      <slot :item="item"/>
+      <slot name="item" :item="item"/>
     </div>
 
     <slot v-if="!paginatedItems.length" name="no-items"/>
