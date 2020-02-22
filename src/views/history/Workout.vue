@@ -39,7 +39,10 @@
             </v-list-item-avatar>
 
             <v-list-item-content>
-              <v-list-item-title>{{ exercise.name }}</v-list-item-title>
+              <v-list-item-title>
+                <span v-if="exercise.type === 'body' || exercise.type === 'time'">Bodyweight</span>
+                {{ exercise.name }}
+              </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 

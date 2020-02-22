@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div v-if="paginatedItems.length" v-for="item in paginatedItems">
+    <div
+      v-if="paginatedItems.length"
+      v-for="(item, index) in paginatedItems"
+      :key="index"
+    >
       <slot name="item" :item="item"/>
     </div>
 

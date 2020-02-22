@@ -44,6 +44,7 @@
 
         <v-list-item
           v-for="(set, index) in exercise.sets"
+          :key="index"
           class="c-list-item pr-1"
         >
           <v-list-item-avatar>

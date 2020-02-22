@@ -30,6 +30,7 @@
       <v-card tile elevation="1">
         <v-list-item
           v-for="(exercise, index) in workout.exercises"
+          :key="index"
           replace
           :to="{ name: 'workout_exercise', params: { 'index': index } }"
           class="c-list-item"
