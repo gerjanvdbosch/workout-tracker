@@ -2,7 +2,7 @@
   <div>
     <Navigation>
       <template slot="menu">
-        <v-btn icon @click="updateWorkout">
+        <v-btn icon @click="goBack">
           <v-icon>mdi-arrow-left</v-icon>
         </v-btn>
       </template>
@@ -29,7 +29,7 @@
     </Navigation>
 
     <v-container fluid>
-      <v-card tile elevation="1">
+      <v-card v-if="exercise" tile elevation="1">
         <v-list-item class="c-list-item">
           <v-list-item-avatar>
             <v-avatar :color="exercise.color" class="white--text" size="38">
@@ -66,6 +66,7 @@
                 <v-text-field
                   v-else
                   v-model="set.weight"
+                  @blur="saveWorkout"
                   type="number"
                   step="0.5"
                   label="Weight"
@@ -79,6 +80,7 @@
                 <v-text-field
                   v-if="exercise.type === 'time'"
                   v-model="set.reps"
+                  @blur="saveWorkout"
                   type="number"
                   step="1"
                   label="Seconds"
@@ -88,6 +90,7 @@
                 <v-text-field
                   v-else
                   v-model="set.reps"
+                  @blur="saveWorkout"
                   type="number"
                   step="1"
                   label="Reps"
@@ -140,34 +143,30 @@
 
   export default Vue.extend({
     name: 'Exercise',
-    data: () => ({
-      exercise: {} as Exercise
-    }),
-    created() {
-      this.exercise = this.workout.exercises[this.getIndex()];
-    },
     computed: {
       ...mapGetters({
         workout: 'getActiveWorkout'
-      })
+      }),
+      exercise(): Exercise {
+       return this.workout.exercises[this.$route.params.index];
+      }
     },
     methods: {
-      getIndex() {
-        return this.$route.params.index;
-      },
       addSet() {
         this.exercise.sets.push(<Set>{});
+        this.saveWorkout();
       },
       removeSet(index: number) {
         this.exercise.sets.splice(index, 1);
+        this.saveWorkout();
       },
       removeExercise() {
-        this.workout.exercises.splice(this.getIndex(), 1);
+        this.workout.exercises.splice(this.$route.params.index, 1);
+        this.saveWorkout();
         this.goBack();
       },
-      updateWorkout() {
+      saveWorkout() {
         this.$store.commit('setActiveWorkout', this.workout);
-        this.goBack();
       },
       goBack() {
         this.$router.replace({ name: 'workout' });
