@@ -1,17 +1,17 @@
 <template>
   <div>
     <Navigation>
-      <template slot="menu">
+      <template v-slot:menu>
         <v-btn icon @click="goBack">
           <v-icon>mdi-arrow-left</v-icon>
         </v-btn>
       </template>
 
-      <template slot="title">
+      <template v-slot:title>
         <v-toolbar-title>Exercise</v-toolbar-title>
       </template>
 
-      <template slot="options">
+      <template v-slot:options>
         <v-menu content-class="elevation-2 c-tile">
           <template v-slot:activator="{ on }">
             <v-btn icon v-on="on">

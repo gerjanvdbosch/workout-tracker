@@ -16,11 +16,11 @@ export default {
       const workouts = localStorage.getItem('workouts');
 
       if (activeWorkout) {
-        Object.assign(state.activeWorkout, JSON.parse(activeWorkout))
+        Object.assign(state.activeWorkout, JSON.parse(activeWorkout));
       }
 
       if (workouts) {
-        Object.assign(state.workouts, JSON.parse(workouts))
+        Object.assign(state.workouts, JSON.parse(workouts));
       }
     },
     setActiveWorkout: function (state: any, workout: Workout) {

@@ -5,7 +5,11 @@
       v-for="(item, index) in paginatedItems"
       :key="index"
     >
-      <slot name="item" :item="item"/>
+      <slot
+        name="item"
+        :item="item"
+        :index="index"
+      />
     </div>
 
     <slot v-if="!paginatedItems.length" name="no-items"/>
@@ -38,6 +42,13 @@
       itemsPerPage: 10,
       paginatedItems: Array<any>()
     }),
+    watch: {
+      items: {
+        handler() {
+          this.reset();
+        }
+      }
+    },
     mounted() {
       this.reset();
     },

@@ -11,7 +11,7 @@
         <v-row>
           <v-col class="pt-0 pb-0">
             <v-text-field
-              v-model="weight"
+              v-model="body.weight"
               label="Weight"
               type="number"
               suffix="kg"
@@ -21,7 +21,7 @@
 
           <v-col class="pt-0 pb-0">
             <v-text-field
-              v-model="fat"
+              v-model="body.fat"
               label="Fat"
               type="number"
               suffix="%"
@@ -34,7 +34,7 @@
       <v-card-actions>
         <v-spacer/>
         <v-btn color="blue darken-1" text @click="toggleDialog">Cancel</v-btn>
-        <v-btn color="blue darken-1" text @click="save">Save</v-btn>
+        <v-btn color="blue darken-1" text @click="saveBody">Save</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -42,20 +42,22 @@
 
 <script lang="ts">
   import Vue from 'vue';
+  import Body from '@/models/Body';
 
   export default Vue.extend({
     name: 'BodyDialog',
     data: () => ({
       showDialog: false,
-      weight: null,
-      fat: null,
+      body: <Body>{}
     }),
     methods: {
       toggleDialog() {
         this.showDialog = !this.showDialog;
       },
-      save() {
-
+      saveBody() {
+        this.$emit('saveBody', this.body);
+        this.body = <Body>{};
+        this.toggleDialog();
       }
     }
   });

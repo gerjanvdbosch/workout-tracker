@@ -1,11 +1,11 @@
 <template>
   <div>
     <Navigation>
-      <template slot="menu">
+      <template v-slot:menu>
         <slot name="menu"/>
       </template>
 
-      <template slot="title">
+      <template v-slot:title>
         <v-toolbar-title v-if="!showSearch">Exercises</v-toolbar-title>
         <v-text-field
           v-else
@@ -21,7 +21,7 @@
         />
       </template>
 
-      <template slot="options">
+      <template v-slot:options>
         <v-btn icon @click="toggleSearch">
           <v-icon v-if="showSearch">mdi-close</v-icon>
           <v-icon v-else>mdi-magnify</v-icon>
@@ -59,7 +59,7 @@
             </v-list-item>
           </template>
 
-          <template slot="no-items">
+          <template v-slot:no-items>
             <v-list-item class="c-list-item">
               <v-list-item-content>
                 <v-list-item-title class="grey--text text-center">

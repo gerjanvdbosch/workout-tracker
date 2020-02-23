@@ -1,11 +1,11 @@
 <template>
   <div>
     <Navigation>
-      <template slot="title">
+      <template v-slot:title>
         <v-toolbar-title>Workout</v-toolbar-title>
       </template>
 
-      <template slot="options" v-if="workout.exercises.length">
+      <template v-slot:options v-if="workout.exercises.length">
         <v-menu content-class="elevation-2 c-tile">
           <template v-slot:activator="{ on }">
             <v-btn icon v-on="on">
@@ -82,10 +82,13 @@
     methods: {
       finishWorkout() {
         this.$store.commit('finishActiveWorkout');
-        this.$router.replace('/');
+        this.goBack();
       },
       cancelWorkout() {
         this.$store.commit('cancelActiveWorkout');
+        this.goBack();
+      },
+      goBack() {
         this.$router.replace('/');
       }
     },

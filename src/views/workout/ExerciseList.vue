@@ -4,7 +4,7 @@
     :selected-exercises="selectedExercises"
     @selectExercise="selectExercise"
   >
-    <template slot="menu">
+    <template v-slot:menu>
       <v-btn icon exact replace :to="{ name: 'workout' }">
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>

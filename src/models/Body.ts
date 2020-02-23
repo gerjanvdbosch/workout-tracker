@@ -1,4 +1,5 @@
 export default interface Body {
+  date: Date
   weight: number
-  fatPercentage: number
+  fat: number
 }
