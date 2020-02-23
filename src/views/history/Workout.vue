@@ -30,7 +30,9 @@
 
     <v-container fluid>
       <v-card v-if="workout" tile elevation="1">
-        <div v-for="exercise in workout.exercises">
+        <div v-for="(exercise, key) in workout.exercises">
+          <v-divider v-if="key !== 0"/>
+
           <v-list-item class="c-list-item">
             <v-list-item-avatar>
               <v-avatar :color="exercise.color" class="white--text" size="38">
@@ -40,7 +42,6 @@
 
             <v-list-item-content>
               <v-list-item-title>
-                <span v-if="exercise.type === 'body' || exercise.type === 'time'">Bodyweight</span>
                 {{ exercise.name }}
               </v-list-item-title>
             </v-list-item-content>
