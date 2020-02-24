@@ -1,4 +1,5 @@
 import Body from '@/models/Body';
+import uuid from 'uuid';
 
 export default {
   state: {
@@ -13,12 +14,17 @@ export default {
       }
     },
     saveBody(state: any, body: Body) {
+      body.id = uuid();
       body.date = new Date();
 
       state.body.unshift(body);
     },
-    removeBody: function (state: any, index: number) {
-      state.body.splice(index, 1);
+    removeBody: function (state: any, id: string) {
+      const index = state.body.findIndex((item: Body) => item.id === id);
+
+      if (index !== -1) {
+        state.body.splice(index, 1);
+      }
     }
   },
   getters: {

@@ -19,7 +19,7 @@
     <v-container fluid>
       <v-card tile elevation="1">
         <InfiniteLoading :items="body">
-          <template v-slot:item="{ item, index }">
+          <template v-slot:item="{ item }">
             <v-list-item class="c-list-item pr-1">
               <v-list-item-avatar>
                 <v-avatar color="grey lighten-2" size="38">
@@ -46,7 +46,7 @@
                   </template>
 
                   <v-list class="pt-0 pb-0 c-tile">
-                    <v-list-item @click="removeBody(index)">
+                    <v-list-item @click="removeBody(item.id)">
                       <v-list-item-title>Remove</v-list-item-title>
                     </v-list-item>
                   </v-list>
@@ -89,8 +89,8 @@
       saveBody(body: Body) {
         this.$store.commit('saveBody', body);
       },
-      removeBody(index: number) {
-        this.$store.commit('removeBody', index);
+      removeBody(id: string) {
+        this.$store.commit('removeBody', id);
       }
     },
     components: {
