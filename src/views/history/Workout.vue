@@ -28,43 +28,44 @@
       </template>
     </Navigation>
 
-    <v-container fluid>
-      <v-card v-if="workout" tile elevation="1">
-        <div v-for="(exercise, key) in workout.exercises">
-          <v-divider v-if="key !== 0"/>
+    <v-container v-if="workout" fluid>
+      <div v-for="(exercise, key) in workout.exercises">
+        <div v-if="key !== 0" class="mb-3"/>
 
-          <v-list-item class="c-list-item">
-            <v-list-item-avatar>
-              <v-avatar :color="exercise.color" class="white--text" size="38">
-                {{ exercise.code }}
-              </v-avatar>
-            </v-list-item-avatar>
+        <v-card tile class="c-card">
+          <v-list>
+            <v-list-item class="c-list-item">
+              <v-list-item-avatar>
+                <v-avatar :color="exercise.color" class="white--text" size="38">
+                  {{ exercise.code }}
+                </v-avatar>
+              </v-list-item-avatar>
 
-            <v-list-item-content>
-              <v-list-item-title>
-                {{ exercise.name }}
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
+              <v-list-item-content>
+                <v-list-item-title class="font-weight-medium">{{ exercise.name }}</v-list-item-title>
+                <v-list-item-subtitle>{{ exercise.sets.length }} sets</v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
 
-          <v-list-item v-for="(set, index) in exercise.sets" style="height: 48px;">
-            <v-list-item-avatar>
-              <v-avatar color="grey--text text--darken-2 c-border-grey" size="30">
-                {{ index + 1 }}
-              </v-avatar>
-            </v-list-item-avatar>
+            <v-list-item v-for="(set, index) in exercise.sets" style="height: 48px;">
+              <v-list-item-avatar>
+                <v-avatar color="grey--text text--darken-2 c-border-grey" size="30">
+                  {{ index + 1 }}
+                </v-avatar>
+              </v-list-item-avatar>
 
-            <v-list-item-content>
-              <v-list-item-title>
-                <span v-if="exercise.type !== 'body' && exercise.type !== 'time'">{{ set.weight }} kg x</span>
-                {{ set.reps }}
-                <span v-if="exercise.type === 'time'">seconds</span>
-                <span v-else>reps</span>
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </div>
-      </v-card>
+              <v-list-item-content>
+                <v-list-item-title>
+                  <span v-if="exercise.type !== 'body' && exercise.type !== 'time'">{{ set.weight }} kg x</span>
+                  {{ set.reps }}
+                  <span v-if="exercise.type === 'time'">seconds</span>
+                  <span v-else>reps</span>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-card>
+      </div>
     </v-container>
   </div>
 </template>

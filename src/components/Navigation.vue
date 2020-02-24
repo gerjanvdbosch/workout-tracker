@@ -35,20 +35,22 @@
         </v-list-item>
       </v-card>
 
-      <v-list-item
-        v-for="item in items"
-        :to="item.route"
-        replace
-        exact
-      >
-        <v-list-item-action>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-action>
+      <v-list>
+        <v-list-item
+          v-for="item in items"
+          :to="item.route"
+          replace
+          exact
+        >
+          <v-list-item-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-action>
 
-        <v-list-item-content>
-          <v-list-item-title>{{ item.text }}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+          <v-list-item-content>
+            <v-list-item-title>{{ item.text }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
     </v-navigation-drawer>
 
     <v-app-bar
@@ -85,22 +87,22 @@
         {
           icon: 'mdi-history',
           text: 'History',
-          route: { name: 'history' }
+          route: {name: 'history'}
         },
         {
           icon: 'mdi-scale-bathroom',
           text: 'Body',
-          route: { name: 'body' }
+          route: {name: 'body'}
         },
         {
           icon: 'mdi-text',
           text: 'Exercises',
-          route: { name: 'exercise_list' }
+          route: {name: 'exercise_list'}
         },
         {
           icon: 'mdi-weight-lifter',
           text: 'Start workout',
-          route: { name: 'workout' }
+          route: {name: 'workout'}
         },
       ]
     }),

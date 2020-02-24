@@ -27,41 +27,50 @@
     </Navigation>
 
     <v-container fluid>
-      <v-card tile elevation="1">
-        <v-list-item
-          v-for="(exercise, index) in workout.exercises"
-          :key="index"
-          replace
-          :to="{ name: 'workout_exercise', params: { 'index': index } }"
-          class="c-list-item"
-        >
-          <v-list-item-avatar>
-            <v-avatar :color="exercise.color" class="white--text" size="38">
-              {{ exercise.code }}
-            </v-avatar>
-          </v-list-item-avatar>
+      <v-card
+        v-for="(exercise, index) in workout.exercises"
+        :key="index"
+        class="c-card mb-3"
+        tile
+      >
+        <v-list>
+          <v-list-item
+            :to="{ name: 'workout_exercise', params: { 'index': index } }"
+            replace
+            class="c-list-item"
+          >
+            <v-list-item-avatar>
+              <v-avatar :color="exercise.color" class="white--text" size="38">
+                {{ exercise.code }}
+              </v-avatar>
+            </v-list-item-avatar>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ exercise.name }}</v-list-item-title>
-            <v-list-item-subtitle>{{ exercise.sets.length }} sets</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
+            <v-list-item-content>
+              <v-list-item-title class="font-weight-medium">{{ exercise.name }}</v-list-item-title>
+              <v-list-item-subtitle>{{ exercise.sets.length }} sets</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-card>
 
-        <v-list-item
-          replace
-          :to="{ name: 'workout_exercise_list' }"
-          class="c-list-item"
-        >
-          <v-list-item-avatar>
-            <v-avatar color="grey lighten-2" size="38">
-              <v-icon>mdi-plus</v-icon>
-            </v-avatar>
-          </v-list-item-avatar>
+      <v-card tile class="c-card">
+        <v-list>
+          <v-list-item
+            replace
+            :to="{ name: 'workout_exercise_list' }"
+            class="c-list-item"
+          >
+            <v-list-item-avatar>
+              <v-avatar color="grey lighten-2" size="38">
+                <v-icon>mdi-plus</v-icon>
+              </v-avatar>
+            </v-list-item-avatar>
 
-          <v-list-item-content>
-            <v-list-item-title>Add exercise</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Add exercise</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
       </v-card>
     </v-container>
   </div>

@@ -7,7 +7,7 @@
     <v-card>
       <v-card-title>Body</v-card-title>
 
-      <v-card-text class="pb-3">
+      <v-card-text class="pb-4">
         <v-row>
           <v-col class="pt-0 pb-0">
             <v-text-field

@@ -17,55 +17,63 @@
     </Navigation>
 
     <v-container fluid>
-      <v-card tile elevation="1">
-        <InfiniteLoading :items="body">
-          <template v-slot:item="{ item }">
-            <v-list-item class="c-list-item pr-1">
-              <v-list-item-avatar>
-                <v-avatar color="grey lighten-2" size="38">
-                  <v-icon>mdi-scale-bathroom</v-icon>
-                </v-avatar>
-              </v-list-item-avatar>
+      <InfiniteLoading :items="body">
+        <template v-slot:item="{ item, index }">
+          <div v-if="index !== 0" class="mb-3"/>
 
-              <v-list-item-content>
-                <v-list-item-title>
-                  <v-row>
-                    <v-col class="pt-0 pb-0">{{ item.weight }} kg</v-col>
-                    <v-col class="pt-0 pb-0">{{ item.fat }} %</v-col>
-                  </v-row>
-                </v-list-item-title>
-                <v-list-item-subtitle>{{ item.date|moment('calendar') }}</v-list-item-subtitle>
-              </v-list-item-content>
+          <v-card tile class="c-card">
+            <v-list>
+              <v-list-item class="c-list-item pr-1">
+                <v-list-item-avatar>
+                  <v-avatar color="grey lighten-2" size="38">
+                    <v-icon>mdi-scale-bathroom</v-icon>
+                  </v-avatar>
+                </v-list-item-avatar>
 
-              <v-list-item-action class="ml-0">
-                <v-menu content-class="elevation-2 c-tile" offset-y>
-                  <template v-slot:activator="{ on }">
-                    <v-btn icon v-on="on">
-                      <v-icon>mdi-dots-vertical</v-icon>
-                    </v-btn>
-                  </template>
+                <v-list-item-content>
+                  <v-list-item-title>
+                    <v-row>
+                      <v-col class="pt-0 pb-0">{{ item.weight }} kg</v-col>
+                      <v-col class="pt-0 pb-0">{{ item.fat }} %</v-col>
+                    </v-row>
+                  </v-list-item-title>
+                  <v-list-item-subtitle>{{ item.date|moment('calendar') }}</v-list-item-subtitle>
+                </v-list-item-content>
 
-                  <v-list class="pt-0 pb-0 c-tile">
-                    <v-list-item @click="removeBody(item.id)">
-                      <v-list-item-title>Remove</v-list-item-title>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
-              </v-list-item-action>
-            </v-list-item>
-          </template>
+                <v-list-item-action class="ml-0">
+                  <v-menu content-class="elevation-2 c-tile" offset-y>
+                    <template v-slot:activator="{ on }">
+                      <v-btn icon v-on="on">
+                        <v-icon>mdi-dots-vertical</v-icon>
+                      </v-btn>
+                    </template>
 
-          <template v-slot:no-items>
-            <v-list-item class="c-list-item">
-              <v-list-item-content>
-                <v-list-item-title class="grey--text text-center">
-                  No logs found
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </template>
-        </InfiniteLoading>
-      </v-card>
+                    <v-list class="pt-0 pb-0 c-tile">
+                      <v-list-item @click="removeBody(item.id)">
+                        <v-list-item-title>Remove</v-list-item-title>
+                      </v-list-item>
+                    </v-list>
+                  </v-menu>
+                </v-list-item-action>
+              </v-list-item>
+            </v-list>
+          </v-card>
+        </template>
+
+        <template v-slot:no-items>
+          <v-card tile class="c-card">
+            <v-list>
+              <v-list-item class="c-list-item">
+                <v-list-item-content>
+                  <v-list-item-title class="grey--text text-center">
+                    No logs found
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </v-card>
+        </template>
+      </InfiniteLoading>
     </v-container>
   </div>
 </template>

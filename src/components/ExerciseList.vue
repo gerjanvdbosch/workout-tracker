@@ -31,44 +31,46 @@
 
     <v-container fluid>
       <v-card tile elevation="1">
-        <InfiniteLoading :items="exercises" ref="infiniteLoading">
-          <template v-slot:item="{ item }">
-            <v-list-item class="c-list-item">
-              <v-list-item-avatar>
-                <v-avatar :color="item.color" class="white--text" size="38">
-                  {{ item.code }}
-                </v-avatar>
-              </v-list-item-avatar>
+        <v-list>
+          <InfiniteLoading :items="exercises" ref="infiniteLoading">
+            <template v-slot:item="{ item }">
+              <v-list-item class="c-list-item">
+                <v-list-item-avatar>
+                  <v-avatar :color="item.color" class="white--text" size="38">
+                    {{ item.code }}
+                  </v-avatar>
+                </v-list-item-avatar>
 
-              <v-list-item-content>
-                <v-list-item-title>{{ item.name }}</v-list-item-title>
-              </v-list-item-content>
+                <v-list-item-content>
+                  <v-list-item-title>{{ item.name }}</v-list-item-title>
+                </v-list-item-content>
 
-              <v-list-item-action v-if="selectable">
-                <v-checkbox
-                  v-if="selectedExercises.includes(item.name)"
-                  input-value="true"
-                  disabled
-                />
-                <v-checkbox
-                  v-else
-                  color="primary"
-                  @change="selectExercise(item)"
-                />
-              </v-list-item-action>
-            </v-list-item>
-          </template>
+                <v-list-item-action v-if="selectable">
+                  <v-checkbox
+                    v-if="selectedExercises.includes(item.name)"
+                    input-value="true"
+                    disabled
+                  />
+                  <v-checkbox
+                    v-else
+                    color="primary"
+                    @change="selectExercise(item)"
+                  />
+                </v-list-item-action>
+              </v-list-item>
+            </template>
 
-          <template v-slot:no-items>
-            <v-list-item class="c-list-item">
-              <v-list-item-content>
-                <v-list-item-title class="grey--text text-center">
-                  No exercise found with '{{ searchText }}'
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </template>
-        </InfiniteLoading>
+            <template v-slot:no-items>
+              <v-list-item class="c-list-item">
+                <v-list-item-content>
+                  <v-list-item-title class="grey--text text-center">
+                    No exercise found with '{{ searchText }}'
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </template>
+          </InfiniteLoading>
+        </v-list>
       </v-card>
     </v-container>
   </div>
