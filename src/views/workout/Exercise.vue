@@ -176,7 +176,7 @@
         this.$store.commit('setActiveWorkout', this.workout);
       },
       goBack() {
-        this.$router.replace({name: 'workout'});
+        this.$router.replace({ name: 'workout' });
       }
     },
     components: {
