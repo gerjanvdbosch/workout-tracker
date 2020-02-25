@@ -117,7 +117,7 @@
 
                 <v-list class="pt-0 pb-0 c-tile">
                   <v-list-item @click="removeSet(index)">
-                    <v-list-item-title>Remove set</v-list-item-title>
+                    <v-list-item-title>Remove</v-list-item-title>
                   </v-list-item>
                 </v-list>
               </v-menu>

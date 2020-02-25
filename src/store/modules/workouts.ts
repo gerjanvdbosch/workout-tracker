@@ -58,20 +58,37 @@ export default {
       return getters.fillWorkout(state.activeWorkout);
     },
     getWorkouts: (state: any, getters: any) => {
-      return state.workouts.map((workout: Workout) => {
+      return state.workouts.slice(0, 100).map((workout: Workout) => {
         workout = getters.fillWorkout(workout);
-        workout.name = getters.getGroups(workout, 2).map((e: any) => e.name).join(' and ');
+
+        const groups = getters.getGroups(workout, 2);
+
+        workout.name = groups.map((e: any) => e.name).join(' and ');
+        workout.code = groups[0].code;
+        workout.color = groups[0].color;
 
         return workout;
       });
     },
     getGroups: () => (workout: Workout, items: number) => {
-      const groups = _.countBy(workout.exercises, 'group');
-      let counts = Object.keys(groups).map(name => {
-        return { name, count: groups[name]};
-      });
+      const counts = workout.exercises.reduce((result: any, exercise: Exercise) => {
+        if (!result[exercise.group]) {
+          result[exercise.group] = {
+            exercises: 0,
+            sets: 0,
+            name: exercise.group,
+            code: exercise.code,
+            color: exercise.color,
+          };
+        }
 
-      return _.orderBy(counts, 'count', 'desc').slice(0, items);
+        result[exercise.group].exercises++;
+        result[exercise.group].sets += exercise.sets.length;
+
+        return result;
+      }, {});
+
+      return _.orderBy(counts, ['exercises', 'sets'], ['desc', 'desc']).slice(0, items);
     },
     getWorkout: (state: any, getters: any) => (id: string) => {
       const workout = state.workouts.find((item: Workout) => item.id === id);

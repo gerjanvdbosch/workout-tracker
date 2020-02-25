@@ -29,7 +29,7 @@ export default {
   },
   getters: {
     getBody(state: any) {
-      return state.body;
+      return state.body.slice(0, 100);
     }
   }
 }
