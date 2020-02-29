@@ -33,7 +33,9 @@
       <v-card tile elevation="1">
         <v-list>
           <InfiniteLoading :items="exercises" ref="infiniteLoading">
-            <template v-slot:item="{ item }">
+            <template v-slot:item="{ item, index }">
+              <v-divider v-if="index !== 0" inset class="mb-1 mt-1"/>
+
               <v-list-item class="c-list-item">
                 <v-list-item-avatar>
                   <v-avatar :color="item.color" class="white--text" size="38">
@@ -42,7 +44,7 @@
                 </v-list-item-avatar>
 
                 <v-list-item-content>
-                  <v-list-item-title>{{ item.name }}</v-list-item-title>
+                  <v-list-item-title style="white-space: initial;">{{ item.name }}</v-list-item-title>
                 </v-list-item-content>
 
                 <v-list-item-action v-if="selectable">
