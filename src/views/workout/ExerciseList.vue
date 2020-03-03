@@ -34,6 +34,7 @@
     methods: {
       selectExercise(exercise: Exercise) {
         exercise.sets = Array<Set>();
+        exercise.sets.push(<Set>{});
 
         this.workout.exercises.push(exercise);
 

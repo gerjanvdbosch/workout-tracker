@@ -29,6 +29,18 @@
                   <v-list-item-subtitle>{{ item.date|moment('calendar') }}</v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
+
+              <v-divider inset/>
+
+              <v-list-item style="min-height: 18px;">
+                <v-list-item-avatar height="0"/>
+                <v-list-item-content class="pt-3 pb-2">
+                  <v-list-item-subtitle>
+                    <v-icon size="18" color="grey" class="mr-1">mdi-weight-lifter</v-icon>
+                    {{ item.exercises.length }} exercises
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
             </v-list>
           </v-card>
         </template>
