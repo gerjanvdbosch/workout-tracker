@@ -42,7 +42,7 @@
               </v-list-item-avatar>
 
               <v-list-item-content>
-                <v-list-item-title class="font-weight-medium">{{ exercise.name }}</v-list-item-title>
+                <v-list-item-title>{{ exercise.name }}</v-list-item-title>
                 <v-list-item-subtitle>{{ exercise.sets.length }} sets</v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>

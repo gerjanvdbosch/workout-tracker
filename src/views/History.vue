@@ -25,7 +25,7 @@
                 </v-list-item-avatar>
 
                 <v-list-item-content>
-                  <v-list-item-title class="font-weight-medium">{{ item.name }}</v-list-item-title>
+                  <v-list-item-title>{{ item.name }}</v-list-item-title>
                   <v-list-item-subtitle>{{ item.date|moment('calendar') }}</v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
