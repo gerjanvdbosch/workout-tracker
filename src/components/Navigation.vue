@@ -29,7 +29,7 @@
 
         <v-list-item>
           <v-list-item-content class="pt-0">
-            <v-list-item-title class="title font-weight-regular white--text">Workout Log</v-list-item-title>
+            <v-list-item-title class="title font-weight-regular white--text">Workout Tracker</v-list-item-title>
             <v-list-item-subtitle class="white--text">{{ logCount }} logs</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
