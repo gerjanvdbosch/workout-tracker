@@ -1,4 +1,4 @@
-# Workout Trackerr
+# Workout Tracker
 
 ## Project setup
 ```
