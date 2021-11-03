@@ -52,7 +52,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/workout-tracker/fonts/materialdesignicons-webfont.f81583fc.eot"
   },
   {
-    "revision": "8f90e762921aa29a4c66ccf036bc9195",
+    "revision": "7cf0c2c84941aa4606ac2dff478f09e6",
     "url": "/workout-tracker/index.html"
   },
   {

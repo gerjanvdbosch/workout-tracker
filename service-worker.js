@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/workout-tracker/precache-manifest.c512d4521a2dadfc26300c0ba1bea8bd.js"
+  "/workout-tracker/precache-manifest.455d5f753c72190cd34f06412349f658.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "workout-log"});
